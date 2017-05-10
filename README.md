@@ -15,15 +15,15 @@ The Bechdel Test has since become relatively well known and is often referenced 
 Our main audience are people who are critical of movies that fail the Bechdel Test and are interested in learning what trends there are in movies being better or worse at the test. We hope by showing these trends that people will be more critical of movies that are likely to fail the Bechdel Test based on the trends they align with. 
 
 ##### Questions that will be investigated
-This project will answer the question of whether or not the budget of the movie increases the chance of passing or failing the test.
-It will also answer the question of how the profit the movie makes can or cannot predict the chance of passing or failing the test.
-Lastly, it will answer the question of how the year the movie was made effects the chance of passing or failing the test.
+This project will answer the question of whether or not the budget of the movie increases the chance of passing or failing the test.  
+It will also answer the question of how the profit the movie makes can or cannot predict the chance of passing or failing the test.  
+Lastly, it will answer the question of how the year the movie was made effects the chance of passing or failing the test.  
 
 
 ## Technical Description
-__Format of Project:__ Shiny.io or HTML page (probably)
-__Format of Data Read in:__ .csv file
-__Major Libraries Used:__ Plotly, dplyr, ggplot2, knitr
+__Format of Project:__ Shiny.io or HTML page (probably)  
+__Format of Data Read in:__ .csv file  
+__Major Libraries Used:__ Plotly, dplyr, ggplot2, knitr     
 
 #### Data Wrangling Needed
 This data is already pretty well formatted. We may need to edit ascii for some titles that are displaying unicode. They also show an IMDB ID, which might lead to editing using the IMDB API.
