@@ -21,15 +21,23 @@ Lastly, it will answer the question of how the year the movie was made effects t
 
 
 ## Technical Description
-__Format of Project:__ Shiny.io or HTML page (probably)  
+__Format of Project:__ Shiny.io 
 __Format of Data Read in:__ .csv file  
 __Major Libraries Used:__ Plotly, dplyr, ggplot2, knitr     
 
 #### Data Wrangling Needed
-This data is already pretty well formatted. We may need to edit ascii for some titles that are displaying unicode. They also show an IMDB ID, which might lead to editing using the IMDB API.
+This data is already pretty well formatted. We may need to edit ascii for some titles that are displaying unicode. They also show an IMDB ID, which might lead to editing using the IMDB API. We may need to join tables with IMDB IDs that contain genre so we can then analyze the movies by genre.
 
 #### Questions to be Answered with Statistical Analysis:
 See above "questions that will be investigated."
+1. Does the budget of a movie impact its likelihood of passing or failing the Bechdel Test? What is the median budget? Average budget?
+2. Does the profit the movie made have a relation to how likely a movie was to pass or fail? What is the median profit?
+3. Is there a trend in Bechdel Test passing or failing based on the year the movie was made?
+4. Does the genre of the movie increase the likelihood of passing or failing the Bechdel Test?
+5. How is the IMDB rating related to the movie's pass/fail status?
+6. Are there any actors who are more likely to be in passing or failing movies?
+7. Does rating (PG-13, R, etc.) affect the likelihood of passing or failing the test?
+8. Does release date affect the likelihood of passing or failing the test?
 
 #### Anticipated Major Challenges
-The scope of our data is not massive, as it has about 1800 lines of data and some years do not have many movies. We may have to narrow down our scope to a few years where there is a lot of data.
+The scope of our data is not massive, as it has about 1800 lines of data and some years do not have many movies. We may have to narrow down our scope to a few years where there is a lot of data. It may be challenging to cleanly join data from the IMDB Api, especially if we have many additional columns to add.
