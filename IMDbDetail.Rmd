@@ -1,0 +1,71 @@
+# What Data Do We Have? 
+We have IMDb ID ("ttxxxxxxx") from the "imdb" column in fivethirtyeight dataset. Each ID corresponds to each movie on IMDb website.   
+  
+# What Can We Do? 
+We can use [OMDb API](http://www.omdbapi.com/) to get more imformation about movie by passing the ID to it.     
+  
+The data set contains:     
++ Title  
++ Year (release year)  
++ Rated (R rated or not)  
++ Released (release date)  
++ Runtime (in min)  
++ Genre   
++ Director  
++ Writer  
++ Actors  
++ Plot  
++ Language  
++ Country  
++ Awards (number of awards and nomination)  
++ Poster (link to image)  
++ Ratings (Source and Value)  
++ imdbRating   
++ imdbVotes  
++ imdbID   
++ Type (movie, drama, etc)  
++ DVD (release date for DVD)  
++ BoxOffice (total earning)   
++ Website (link to the movie website)   
+
+# How Can We Use It? 
+OMDb API allows us to requst a data using movie ID which can be found in the fivethirtyeight dataset. 
+
+Base URI is `http://www.omdbapi.com/?` , and pass in `i = ttxxxxxxx` as query (movie ID) to get the information listed above. The returned data is in json, which can be easily formatted using R. 
+
+Here's demo of how to use the OMDb API, and let's use Titanic as our test movie (ID = tt0120338). 
+```{r message = FALSE}
+library(jsonlite)
+library(httr)
+library(dplyr)
+
+movie.id <- "tt0120338"
+base.uri <- "http://www.omdbapi.com/?"
+query.param <- list(i = movie.id)
+response <- GET(base.uri, query = query.param)
+body <- content(response, "text")
+result <- as.data.frame(fromJSON(body))
+data <- result %>% filter(Ratings.Source == "Internet Movie Database") # Only interested in IMD ratings 
+```
+Here are some information that I'm interested in about Titanic:   
+- Title: `r data$Title`  
+- Year: `r data$Year`  
+- Rated: `r data$Rated`  
+- Runtime: `r data$Runtime`  
+- Awards: `r data$Awards`  
+- Rating: `r data$Rating.Value`  
+- Earning: `r data$BoxOffice`  
+
+From this example, it is clear that lots of imformation can be acquired just from the IMDb movie ID. 
+We can later comapre this result with the Bechdel Test result and look for any patterns. 
+
+
+
+
+
+
+
+
+
+
+
