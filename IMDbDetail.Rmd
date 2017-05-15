@@ -47,6 +47,8 @@ body <- content(response, "text")
 result <- as.data.frame(fromJSON(body))
 data <- result %>% filter(Ratings.Source == "Internet Movie Database") # Only interested in IMD ratings 
 ```
+
+
 Here are some information that I'm interested in about Titanic:   
 - Title: `r data$Title`  
 - Year: `r data$Year`  

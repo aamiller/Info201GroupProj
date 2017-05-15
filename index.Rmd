@@ -1,0 +1,11 @@
+
+```{r, echo=FALSE}
+#Anni: this is a dataset that using function find_movie to search movie info
+#using imdb ids from bechdel data
+
+bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
+source("./script/find_movie.R")
+imdb_id <- bechdel_data_raw$imdb
+result <- lapply(imdb_id, find_movie)
+knitr::kable(result)
+```
