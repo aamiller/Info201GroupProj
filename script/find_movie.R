@@ -7,11 +7,14 @@ library(dplyr)
 
 find_movie <- function(id) {
   base.uri <- "http://www.omdbapi.com/?"
-  query.param <- list(i = id)
+  query.param <- list(i = id, apikey="c53bd0e4")
   response <- GET(base.uri, query = query.param)
   body <- content(response, "text")
   result <- as.data.frame(fromJSON(body))
-  return (result)
+  data <- result[1, ]
+  #data <- data %>% select(Title, Year, Rated, Genre, Director, Writer, Actors, Plot, Language, 
+                         # Country, Awards, Ratings.Source, imdbRating, imdbVotes, imdbID, Production)
+  return (data)
 }
 
 
