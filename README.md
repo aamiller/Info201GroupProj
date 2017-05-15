@@ -12,7 +12,7 @@ According to [bechdeltest.com](http://bechdeltest.com/), the Bechdel Test, somet
 The Bechdel Test has since become relatively well known and is often referenced in movie reviews. It has become a rather embarassing test to fail, though many movies do fail it. 
 
 #### Audiences for this project
-Our main audience are people who are critical of movies that fail the Bechdel Test and are interested in learning what trends there are in movies being better or worse at the test. We hope by showing these trends that people will be more critical of movies that are likely to fail the Bechdel Test based on the trends they align with. 
+Our main audience are people who are critical of movies that fail the Bechdel Test and are interested in learning what trends there are in movies being better or worse at the test. More specifically, we will be targeting users who use statistic-based news websites like FiveThirtyEight.  We hope by showing these trends that people will be more critical of movies that are likely to fail the Bechdel Test based on the trends they align with. 
 
 ##### Questions that will be investigated
 This project will answer the question of whether or not the budget of the movie increases the chance of passing or failing the test.  
@@ -41,3 +41,5 @@ See above "questions that will be investigated."
 
 #### Anticipated Major Challenges
 The scope of our data is not massive, as it has about 1800 lines of data and some years do not have many movies. We may have to narrow down our scope to a few years where there is a lot of data. It may be challenging to cleanly join data from the IMDB Api, especially if we have many additional columns to add.
+
+Since we are pretty new to using Shiny.io but the INFO 201 class this project is for is going to teach it in more depth, we should be able to work in Shiny.io by the end of this week. 
