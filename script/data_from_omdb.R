@@ -1,9 +1,5 @@
-```{r, include=FALSE}
 library(dplyr)
-```
 
-
-```{r, echo=FALSE, message=FALSE}
 #Anni: this is a dataset that using function find_movie to search movie info
 #using imdb ids from bechdel data
 
@@ -38,6 +34,3 @@ for (id in sample$imdb) {
 #rename the data table
 assign(paste(2013, "table"), result_table)
 #}
-
-
-```
