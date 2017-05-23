@@ -7,8 +7,9 @@ yearly_dataset <- select(bechdel_data_raw, year, imdb, title, clean_test, binary
 yearly_data <- function(input.year) {
   pass_or_fail <- yearly_dataset %>% 
     filter(year == input.year) %>% 
-    summarise(year = input.year, fail = sum(binary == "FAIL"), pass = sum(binary == "PASS"), total = length(binary))
+    summarise(year = input.year, fail = sum(binary == "FAIL"), pass = sum(binary == "PASS"), 
+              total = length(binary))
   return(pass_or_fail)
 }
 
-#test <- yearly_data(2013)
+test <- yearly_data(2013)
