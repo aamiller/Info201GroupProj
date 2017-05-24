@@ -5,25 +5,36 @@
 library(plotly)
 library(stringr)
 library(Hmisc)
+library(dplyr)
+
+data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
+BuildScatter(data)
 
 ### Build Scatter ###
-BuildScatter <- function(data, xvar = 'budget', yvar = 'dom_gross') {
+BuildScatter <- function(data.movies, xvar = 'budget', yvar = 'domgross') {
+  
+  ## Fix chr type columns
+  data.movies$domgross <- as.integer(as.character(data.movies$domgross))
+  data.movies$intgross <- as.integer(as.character(data.movies$intgross))
+  data.movies <- filter(data.movies, xvar != '#N/A', yvar != '#N/A')
+  
   
   # Get x and y max -- Code adapted from graph given in m18 exercise
-  xmax <- max(data[,xvar]) * 1.5
-  ymax <- max(data[,yvar]) * 1.5
+  xmax <- max(data.movies[,xvar]) * 1.1
+  ymax <- max(data.movies[,yvar]) * 1.1
   x.equation <- paste0('~', xvar)
   y.equation <- paste0('~', yvar)
   
-  plot_ly(data=data, x = eval(parse(text = x.equation)), 
+  
+  plot_ly(data=data.movies, color = ~binary, colors = c("red", "green"),
+          x = eval(parse(text = x.equation)),
           y = eval(parse(text = y.equation)), 
-          mode='markers', 
+          mode = 'markers',
           marker = list(
             opacity = .4, 
-            size = 10,
-            color = data$binary
+            size = 2
           )) %>% 
-    layout(title = paste(FixAxisLabels(xvar), "Vs.", FixAxisLabels(yvar), "Financial Bechdel Analysis"), xaxis = list(range = c(0, xmax), title = FixAxisLabels(xvar)), 
+    layout(title = paste(FixAxisLabels(xvar), "Vs.", FixAxisLabels(yvar), "Bechdel Financial Analysis"), xaxis = list(range = c(0, xmax), title = FixAxisLabels(xvar)), 
            yaxis = list(range = c(0, ymax), title = FixAxisLabels(yvar))
     ) %>% 
     return()
@@ -32,6 +43,8 @@ BuildScatter <- function(data, xvar = 'budget', yvar = 'dom_gross') {
 
 # Fixes capitalization and short-hand names in the data set for display
 FixAxisLabels <- function(input.var.name) {
-  input.var.name <- capitalize(input.var.name)
+  print(input.var.name)
+  if (input.var.name == 'Domgross') { input.var.name <- "Domestic Gross"}
+  if (input.var.name == "Intgross") { input.var.name <- "International Gross"}
   return(input.var.name)  
 }
