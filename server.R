@@ -2,14 +2,14 @@ library(shiny)
 library(dplyr)
 
 #setwd("~/Desktop/INFO201/Info201GroupProj")
-movie.data <- read.csv("./bechdel_data/movies.csv")
+movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
 source("./script/profitBechdelAssessment.R")
 #source("script/get_num_in_year.R") <--somehow this doesn't work...
 
 shinyServer(function(input, output){
 
-  output$profitBechdelAssessment <- renderPlot({
-    return(movie.data)
+  output$profitBechdelAssessment <- renderPlotly({
+    return(BuildScatter(movie.data, input$scatterVarX, input$scatterVarY))
   })
   
   
