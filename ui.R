@@ -37,13 +37,13 @@ shinyUI(shinyUI(navbarPage("Bechdel Test",
                                       sidebarPanel(
                                         
                                         #page 3 check box widget
-                                        sliderInput("slider1", label = h3("Slider"), min = year_data$year[44], 
-                                                    max = year_data$year[1], value = year_data$year[44])
+                                        sliderInput("slider", label = h3("Slider"), min = year_data$year[44], 
+                                                    max = year_data$year[1], value = c(year_data$year[40], year_data$year[30]))
                                       ),
                                       
                                       #page 3 main panel
                                       mainPanel(
-                                        
+                                        plotlyOutput('linegraph')
                                       )
                                     )
                                     )
