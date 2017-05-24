@@ -37,9 +37,8 @@ shinyUI(shinyUI(navbarPage("Bechdel Test",
                                       sidebarPanel(
                                         
                                         #page 3 check box widget
-                                        checkboxGroupInput("year", label = h3("Year to display"), 
-                                                           choices = year_data$year,
-                                                           selected = year_data$year[1])
+                                        sliderInput("slider1", label = h3("Slider"), min = year_data$year[44], 
+                                                    max = year_data$year[1], value = year_data$year[44])
                                       ),
                                       
                                       #page 3 main panel
