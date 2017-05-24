@@ -6,11 +6,12 @@ source('./script/year.R')
 year_data <- year(bechdel_data_raw)
 
 shinyUI(shinyUI(navbarPage("Bechdel Test",
-                           tabPanel("Page 1"),
-                           tabPanel("Page 2"),
+                           tabPanel("ADELE", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'), ),
+                           tabPanel("ADELE", titlePanel('Does Profit  ')),
+                           tabPanel("SHERRI", titlePanel('Does Budget Affect Passing Rates?')),
                            
                            #tab page 3 by Anni
-                           tabPanel("Page 3", 
+                           tabPanel("ANNI", titlePanel('Does Year Made Affect Passing Rates?')),
                                     
                                     #page 3 side bar lay out
                                     sidebarLayout(
@@ -30,9 +31,9 @@ shinyUI(shinyUI(navbarPage("Bechdel Test",
                                       )
                                     )
                                     ),
-                           tabPanel("page 4")
+                           tabPanel("KEANAN", titlePanel('Does Genre Made Affect Passing Rates?')) 
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:
-                           #tabPanel("Page 1", plotOutput("pg1")) <--I think.....? 
+                           #tabPanel("Page 1", plotOutput("pg1")) <--I think.....? #
                            
 )))
