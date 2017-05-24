@@ -1,10 +1,18 @@
 library(plotly)
 
 #prepare data for page 3
-bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
-source('./script/year.R')
 
+#this is the data from fivethirtyeight
+bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
+
+#trying to get yearly data using year function
+source('./script/year.R')
 year_data <- year(bechdel_data_raw)
+
+#this is the final dataset 
+new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv')
+
+#profitBechdelAssessment.R
 source('./script/profitBechdelAssessment.R')
 
 shinyUI(shinyUI(navbarPage("Bechdel Test",
