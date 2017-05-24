@@ -16,9 +16,9 @@ new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv')
 #profitBechdelAssessment.R
 source('./script/profitBechdelAssessment.R')
 
-shinyUI(shinyUI(navbarPage("Bechdel Test",
-                           tabPanel("ADELE", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?')),
-                           tabPanel("ADELE", titlePanel('Does Profit or Budget Affect Passing Rates?'),
+shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
+                           tabPanel("Rating (ADELE)", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?')),
+                           tabPanel("Profit (ADELE)", titlePanel('Does Profit or Budget Affect Passing Rates?'),
                            sidebarLayout(
                              
                              # Side panel for controls
@@ -34,10 +34,10 @@ shinyUI(shinyUI(navbarPage("Bechdel Test",
                                plotlyOutput('profitBechdelAssessment'))
                            )
                            ),
-                           tabPanel("SHERRI", titlePanel('Does Budget Affect Passing Rates?')),
+                           tabPanel("Budget (SHERRI)", titlePanel('Does Budget Affect Passing Rates?')),
                            
                            #tab page 3 by Anni
-                           tabPanel("ANNI", titlePanel('Does Year Made Affect Passing Rates?'),
+                           tabPanel("Year Made (ANNI)", titlePanel('Does Year Made Affect Passing Rates?'),
                                     
                                     #page 3 side bar lay out
                                     sidebarLayout(

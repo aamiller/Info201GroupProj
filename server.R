@@ -30,5 +30,4 @@ shinyServer(function(input, output){
   #  return(YOUR.FUNCTION.NAME(movie.data, OTHER.PARAMETER))
   #})
   
-  
 })
