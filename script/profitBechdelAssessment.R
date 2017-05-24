@@ -41,7 +41,7 @@ BuildScatter <- function(data.movies, xvar = 'budget', yvar = 'domgross') {
 
 # Fixes capitalization and short-hand names in the data set for display
 FixAxisLabels <- function(input.var.name) {
-  print(input.var.name)
+  #print(input.var.name)
   if (input.var.name == 'domgross') { input.var.name <- "Domestic Gross"}
   if (input.var.name == "intgross") { input.var.name <- "International Gross"}
   return(input.var.name)  

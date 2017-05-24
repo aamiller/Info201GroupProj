@@ -3,6 +3,7 @@ library(dplyr)
 
 #setwd("~/Desktop/INFO201/Info201GroupProj")
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
+joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", stringsAsFactors = FALSE)
 source("./script/profitBechdelAssessment.R")
 source('./script/year.R')
 
