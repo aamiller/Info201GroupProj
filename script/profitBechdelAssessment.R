@@ -7,9 +7,6 @@ library(stringr)
 library(Hmisc)
 library(dplyr)
 
-data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
-BuildScatter(data)
-
 ### Build Scatter ###
 BuildScatter <- function(data.movies, xvar = 'budget', yvar = 'domgross') {
   
@@ -44,7 +41,7 @@ BuildScatter <- function(data.movies, xvar = 'budget', yvar = 'domgross') {
 # Fixes capitalization and short-hand names in the data set for display
 FixAxisLabels <- function(input.var.name) {
   print(input.var.name)
-  if (input.var.name == 'Domgross') { input.var.name <- "Domestic Gross"}
-  if (input.var.name == "Intgross") { input.var.name <- "International Gross"}
+  if (input.var.name == 'domgross') { input.var.name <- "Domestic Gross"}
+  if (input.var.name == "intgross") { input.var.name <- "International Gross"}
   return(input.var.name)  
 }
