@@ -47,10 +47,10 @@ shinyUI(shinyUI(navbarPage("Bechdel Test",
                                         
                                       )
                                     )
-                                    ),
-                           tabPanel("KEANAN", titlePanel('Does Genre Made Affect Passing Rates?')) 
+                                    )
+                           #tabPanel("KEANAN", titlePanel('Does Genre Made Affect Passing Rates?')) 
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:
                            #tabPanel("Page 1", plotOutput("pg1")) <--I think.....? #
                            
-)))
+))
