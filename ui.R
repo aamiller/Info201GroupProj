@@ -4,10 +4,27 @@ library(plotly)
 bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
 source('./script/year.R')
 year_data <- year(bechdel_data_raw)
+source('./script/profitBechdelAssessment.R')
 
 shinyUI(shinyUI(navbarPage("Bechdel Test",
-                           tabPanel("ADELE", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'), ),
-                           tabPanel("ADELE", titlePanel('Does Profit  ')),
+                           tabPanel("ADELE", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?')),
+                           tabPanel("ADELE", titlePanel('Does Profit Affect Passing Rates?'),
+                           sidebarLayout(
+                             
+                             # Side panel for controls
+                             sidebarPanel(
+                               
+                               # Input to select variable to map
+                               selectInput('scatterVarX', label = 'Variable to Map to X Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross')),
+                               selectInput('scatterVarY', label = 'Variable to Map to Y Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross'))
+                             ),
+                             
+                             # Main panel: display plotly map
+                             mainPanel(
+                               plotlyOutput('profitBechdelAssessment')
+                             )
+                           )
+                           ),
                            tabPanel("SHERRI", titlePanel('Does Budget Affect Passing Rates?')),
                            
                            #tab page 3 by Anni
