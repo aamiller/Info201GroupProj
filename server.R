@@ -40,6 +40,10 @@ shinyServer(function(input, output){
   output$ratingText <- renderText({
     "EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE"
   })
+  
+  output$countryText <- renderText({
+    "EDIT YOUR TEXT/CONCLUTION HERE FOR COUNTRY PAGE"
+  })
   #YOUR SHOULD MODIFY THIS FILE BY ADDINT SOMETHING LIKE THIS???
   #output$pg1 <- renderPlot({ 
   #  return(YOUR.FUNCTION.NAME(movie.data, OTHER.PARAMETER))

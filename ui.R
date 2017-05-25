@@ -68,11 +68,16 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                         textOutput("yearMadeText")
                                       )
                                     )
+                            ),
+
+                           tabPanel("Country (KEANAN)", 
+                                    titlePanel('Does Country Made Affect Passing Rates?'),
+                                    mainPanel(
+                                      textOutput("countryText")
                                     )
-)
-                           #tabPanel("KEANAN", titlePanel('Does Genre Made Affect Passing Rates?')) 
+                           ) 
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:
                            #tabPanel("Page 1", plotOutput("pg1")) <--I think.....? #
-                           
+)                           
 ))
