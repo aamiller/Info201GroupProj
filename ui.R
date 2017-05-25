@@ -59,9 +59,14 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                       #page 3 side bar panel
                                       sidebarPanel(
                                         
-                                        #page 3 check box widget
+                                        #page 3 slider widget
                                         sliderInput("slider", label = h3("Slider"), min = year_data$year[44], 
-                                                    max = year_data$year[1], value = c(year_data$year[40], year_data$year[30]))
+                                                    max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
+                                        
+                                        #page 3 radio button widget
+                                        radioButtons("button", label = h3("radio buttons"), 
+                                                           choices = colnames(year_data)[2:3],
+                                                           selected = colnames(year_data)[2])
                                       ),
                                       
                                       #page 3 main panel

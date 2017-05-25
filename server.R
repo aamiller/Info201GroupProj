@@ -21,11 +21,13 @@ shinyServer(function(input, output) {
     modified_data <- year(movie.data)
     modified_data <- modified_data %>% 
       filter(year >= input$slider[1] & year <= input$slider[2])
-    p <- plot_ly(x = modified_data$year, y = (modified_data$fail / modified_data$total), 
-                 type = "scatter", mode = "lines", color = modified_data$fail, name = "fail") %>% 
-      add_trace(x = modified_data$year, y = (modified_data$pass / modified_data$total), 
-                type = "scatter", mode = "lines", color = modified_data$pass, name = "pass") %>% 
-      layout(title = "passing rate from 1970 to 2013")
+    
+    p <- plot_ly(x = modified_data$year, y = (modified_data[, input$button] / modified_data$total), 
+                 type = "scatter", mode = "lines", color = modified_data$total, name = input$button) %>% 
+      # add_trace(x = modified_data$year, y = (modified_data$pass / modified_data$total), 
+      #           type = "scatter", mode = "lines", color = modified_data$pass, name = "pass") %>% 
+    layout(title = paste(input$button,"rate from 1970 to 2013"))
+    
     return(p)
   })
   
