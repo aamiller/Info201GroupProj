@@ -6,7 +6,7 @@ movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
 joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", stringsAsFactors = FALSE)
 source("./script/profitBechdelAssessment.R")
 source('./script/year.R')
-
+source("./script/ratingBarGraph.R")
 shinyServer(function(input, output) {
 
   output$profitBechdelAssessment <- renderPlotly({
