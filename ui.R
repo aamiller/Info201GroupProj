@@ -1,3 +1,4 @@
+
 library(plotly)
 library(Hmisc)
 
@@ -19,25 +20,26 @@ source('./script/profitBechdelAssessment.R')
 shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                            tabPanel("Rating (ADELE)", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
                                     mainPanel(
-                                      textOutput("ratingText")
+                                      textOutput("ratingText"),
+                                      plotlyOutput('contentRatingBechdelAssessment')
                                     )
-                          ),
+                           ),
                            tabPanel("Profit (ADELE)", titlePanel('Does Profit or Budget Affect Passing Rates?'),
-                           sidebarLayout(
-                             
-                             # Side panel for controls
-                             sidebarPanel(
-                               
-                               # Input to select variable to map
-                               selectInput('scatterVarX', label = 'Variable to Map to X Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross')),
-                               selectInput('scatterVarY', label = 'Variable to Map to Y Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross'))
-                             ),
-                             
-                             # Main panel: display plotly map
-                             mainPanel(
-                               plotlyOutput('profitBechdelAssessment'),
-                               textOutput('profitText'))
-                             )
+                                    sidebarLayout(
+                                      
+                                      # Side panel for controls
+                                      sidebarPanel(
+                                        
+                                        # Input to select variable to map
+                                        selectInput('scatterVarX', label = 'Variable to Map to X Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross')),
+                                        selectInput('scatterVarY', label = 'Variable to Map to Y Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross'))
+                                      ),
+                                      
+                                      # Main panel: display plotly map
+                                      mainPanel(
+                                        plotlyOutput('profitBechdelAssessment'),
+                                        textOutput('profitText'))
+                                    )
                            ),
                            tabPanel("Budget (SHERRI)", 
                                     titlePanel('Does Budget Affect Passing Rates?'),
@@ -46,7 +48,7 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                       #plotlyOutput("YOUR PLOT NAME),
                                       textOutput("budgetText")
                                     )
-                            ),
+                           ),
                            
                            #tab page 3 by Anni
                            tabPanel("Year Made (ANNI)", titlePanel('Does Year Made Affect Passing Rates?'),
@@ -68,8 +70,8 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                         textOutput("yearMadeText")
                                       )
                                     )
-                            ),
-
+                           ),
+                           
                            tabPanel("Country (KEANAN)", 
                                     titlePanel('Does Country Made Affect Passing Rates?'),
                                     mainPanel(

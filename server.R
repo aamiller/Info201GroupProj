@@ -7,10 +7,14 @@ joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", st
 source("./script/profitBechdelAssessment.R")
 source('./script/year.R')
 
-shinyServer(function(input, output){
+shinyServer(function(input, output) {
 
   output$profitBechdelAssessment <- renderPlotly({
     return(BuildScatter(movie.data, input$scatterVarX, input$scatterVarY))
+  })
+  
+  output$contentRatingBechdelAssessment <- renderPlotly({
+    return(BuildContentRatingBarGraph(joined.movie.data))
   })
   
   output$linegraph <- renderPlotly ({
@@ -27,23 +31,23 @@ shinyServer(function(input, output){
   
   
   output$ratingText <- renderText({
-    "EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE"
+    return("EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE")
   })
   
   output$profitText <- renderText({
-    "EDIT YOUR TEXT HERE FOR PROFIT PAGE"
+    return("EDIT YOUR TEXT HERE FOR PROFIT PAGE")
   })
   
   output$budgetText <- renderText({
-    "EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE"
+    return("EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE")
   })
   
   output$yearMadeText <- renderText({
-    "EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE"
+    return("EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE")
   })
   
   output$countryText <- renderText({
-    "EDIT YOUR TEXT/CONCLUTION HERE FOR COUNTRY PAGE"
+    return("EDIT YOUR TEXT/CONCLUTION HERE FOR COUNTRY PAGE")
   })
   #YOUR SHOULD MODIFY THIS FILE BY ADDINT SOMETHING LIKE THIS???
   #output$pg1 <- renderPlot({ 
