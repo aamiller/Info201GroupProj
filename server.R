@@ -13,10 +13,6 @@ shinyServer(function(input, output){
     return(BuildScatter(movie.data, input$scatterVarX, input$scatterVarY))
   })
   
-  output$profitText <- renderText({
-    "EDIT YOUR TEXT HERE FOR PROFIT PAGE"
-  })
-  
   output$linegraph <- renderPlotly ({
     modified_data <- year(movie.data)
     modified_data <- modified_data %>% 
@@ -29,16 +25,21 @@ shinyServer(function(input, output){
     return(p)
   })
   
+  
+  output$ratingText <- renderText({
+    "EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE"
+  })
+  
+  output$profitText <- renderText({
+    "EDIT YOUR TEXT HERE FOR PROFIT PAGE"
+  })
+  
   output$budgetText <- renderText({
     "EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE"
   })
   
   output$yearMadeText <- renderText({
     "EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE"
-  })
-  
-  output$ratingText <- renderText({
-    "EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE"
   })
   
   output$countryText <- renderText({
