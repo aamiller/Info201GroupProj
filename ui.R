@@ -17,7 +17,11 @@ new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv')
 source('./script/profitBechdelAssessment.R')
 
 shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
-                           tabPanel("Rating (ADELE)", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?')),
+                           tabPanel("Rating (ADELE)", titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
+                                    mainPanel(
+                                      textOutput("ratingText")
+                                    )
+                          ),
                            tabPanel("Profit (ADELE)", titlePanel('Does Profit or Budget Affect Passing Rates?'),
                            sidebarLayout(
                              
@@ -31,10 +35,18 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                              
                              # Main panel: display plotly map
                              mainPanel(
-                               plotlyOutput('profitBechdelAssessment'))
-                           )
+                               plotlyOutput('profitBechdelAssessment'),
+                               textOutput('profitText'))
+                             )
                            ),
-                           tabPanel("Budget (SHERRI)", titlePanel('Does Budget Affect Passing Rates?')),
+                           tabPanel("Budget (SHERRI)", 
+                                    titlePanel('Does Budget Affect Passing Rates?'),
+                                    #sidebarPanel(add your plot here),
+                                    mainPanel(
+                                      #plotlyOutput("YOUR PLOT NAME),
+                                      textOutput("budgetText")
+                                    )
+                            ),
                            
                            #tab page 3 by Anni
                            tabPanel("Year Made (ANNI)", titlePanel('Does Year Made Affect Passing Rates?'),
@@ -52,7 +64,8 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                       
                                       #page 3 main panel
                                       mainPanel(
-                                        plotlyOutput('linegraph')
+                                        plotlyOutput('linegraph'),
+                                        textOutput("yearMadeText")
                                       )
                                     )
                                     )
