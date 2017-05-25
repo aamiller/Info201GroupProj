@@ -1,5 +1,6 @@
 library(shiny)
 library(dplyr)
+library(scales)
 
 #setwd("~/Desktop/INFO201/Info201GroupProj")
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
@@ -20,13 +21,13 @@ shinyServer(function(input, output) {
   output$linegraph <- renderPlotly ({
     modified_data <- year(movie.data)
     modified_data <- modified_data %>% 
-      filter(year >= input$slider[1] & year <= input$slider[2])
+      filter(year >= input$slider[1] & year <= input$slider[2]) %>% 
+      mutate(pass_ratio = pass / total)
     
     p <- plot_ly(x = modified_data$year, y = (modified_data[, input$button] / modified_data$total), 
-                 type = "scatter", mode = "lines", color = modified_data$total, name = input$button) %>% 
-      # add_trace(x = modified_data$year, y = (modified_data$pass / modified_data$total), 
-      #           type = "scatter", mode = "lines", color = modified_data$pass, name = "pass") %>% 
-    layout(title = paste(input$button,"rate from 1970 to 2013"))
+                 type = "scatter", mode = "lines", color = modified_data$pass_ratio, 
+                 name = input$button) %>% 
+         layout(title = paste(input$button,"rate from 1970 to 2013"))
     
     return(p)
   })
@@ -45,6 +46,13 @@ shinyServer(function(input, output) {
   })
   
   output$yearMadeText <- renderText({
+    year_data <- year(movie.data)
+    data_table_one <- year_data %>% 
+      group_by(year) %>% 
+      summarise(pass_ratio = percent(pass/total), total = total)
+    half_pass_table <- year_data %>% 
+      mutate(pass_rate = pass/total) %>% 
+      filter(pass_rate > 0.5) 
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE")
   })
   
