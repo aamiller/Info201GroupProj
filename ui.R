@@ -1,4 +1,5 @@
-
+library(dplyr)
+library(ggplot2)
 library(plotly)
 library(Hmisc)
 
@@ -50,29 +51,30 @@ shinyUI(shinyUI(navbarPage("What Affects Passing Bechdel Test?",
                                     )
                            ),
                            
-                           #tab page 3 by Anni
+                           #tab page 4 by Anni
                            tabPanel("Year Made (ANNI)", titlePanel('Does Year Made Affect Passing Rates?'),
                                     
-                                    #page 3 side bar lay out
+                                    #page 4 side bar lay out
                                     sidebarLayout(
                                       
-                                      #page 3 side bar panel
+                                      #page 4 side bar panel
                                       sidebarPanel(
                                         
-                                        #page 3 slider widget
+                                        #page 4 slider widget
                                         sliderInput("slider", label = h3("Slider"), min = year_data$year[44], 
                                                     max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
                                         
-                                        #page 3 radio button widget
+                                        #page 4 radio button widget
                                         radioButtons("button", label = h3("radio buttons"), 
-                                                           choices = colnames(year_data)[2:3],
-                                                           selected = colnames(year_data)[2])
+                                                           choices = list("pass" = "PASS", "fail" = "FAIL"),
+                                                           selected = "PASS")
                                       ),
                                       
-                                      #page 3 main panel
+                                      #page 4 main panel
                                       mainPanel(
                                         plotlyOutput('linegraph'),
-                                        textOutput("yearMadeText")
+                                        textOutput("yearMadeText"),
+                                        plotlyOutput('testResults')
                                       )
                                     )
                            ),

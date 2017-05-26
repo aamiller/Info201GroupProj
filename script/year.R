@@ -18,3 +18,5 @@ year <- function(input.data) {
   return(test)
 }
 
+#test <- year(bechdel_data_raw)
+

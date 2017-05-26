@@ -1,6 +1,8 @@
 library(shiny)
 library(dplyr)
 library(scales)
+library(ggplot2)
+library(plotly)
 
 #setwd("~/Desktop/INFO201/Info201GroupProj")
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
@@ -22,16 +24,22 @@ shinyServer(function(input, output) {
     modified_data <- year(movie.data)
     modified_data <- modified_data %>% 
       filter(year >= input$slider[1] & year <= input$slider[2]) %>% 
-      mutate(pass_ratio = pass / total)
-    
-    p <- plot_ly(x = modified_data$year, y = (modified_data[, input$button] / modified_data$total), 
+      mutate(pass_ratio = PASS / total)
+  
+    plot_ly(x = modified_data$year, y = (modified_data[, input$button] / modified_data$total), 
                  type = "scatter", mode = "lines", color = modified_data$pass_ratio, 
                  name = input$button) %>% 
          layout(title = paste(input$button,"rate from 1970 to 2013"))
-    
-    return(p)
   })
   
+  output$testResults <- renderPlotly({
+    group_test <- joined.movie.data %>% 
+      filter(binary == input$button)
+    g <- ggplot(group_test, aes(year, imdb_score)) +
+      geom_point(aes(color = content_rating), alpha = 0.5) +
+      facet_grid(clean_test~.)
+    ggplotly(g) 
+  })
   
   output$ratingText <- renderText({
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE")
@@ -49,9 +57,9 @@ shinyServer(function(input, output) {
     year_data <- year(movie.data)
     data_table_one <- year_data %>% 
       group_by(year) %>% 
-      summarise(pass_ratio = percent(pass/total), total = total)
+      summarise(pass_ratio = percent(PASS/total), total = total)
     half_pass_table <- year_data %>% 
-      mutate(pass_rate = pass/total) %>% 
+      mutate(pass_rate = PASS/total) %>% 
       filter(pass_rate > 0.5) 
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE")
   })
