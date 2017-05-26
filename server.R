@@ -34,9 +34,10 @@ shinyServer(function(input, output) {
   
   output$testResults <- renderPlotly({
     group_test <- joined.movie.data %>% 
-      filter(binary == input$button)
+      filter(binary == input$button) %>% 
+      filter(year >= input$slider[1] & year <= input$slider[2]) 
     g <- ggplot(group_test, aes(year, imdb_score)) +
-      geom_point(aes(color = content_rating), alpha = 0.5) +
+      geom_point(aes(color = content_rating, size = budget.x), alpha = 0.5) +
       facet_grid(clean_test~.)
     ggplotly(g) 
   })
