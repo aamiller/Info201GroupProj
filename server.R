@@ -54,17 +54,6 @@ shinyServer(function(input, output) {
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE")
   })
   
-  output$yearMadeText <- renderText({
-    year_data <- year(movie.data)
-    data_table_one <- year_data %>% 
-      group_by(year) %>% 
-      summarise(pass_ratio = percent(PASS/total), total = total)
-    half_pass_table <- year_data %>% 
-      mutate(pass_rate = PASS/total) %>% 
-      filter(pass_rate > 0.5) 
-    return("EDIT YOUR TEXT/CONCLUTION HERE FOR YEAR MADE PAGE")
-  })
-  
   output$countryText <- renderText({
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR COUNTRY PAGE")
   })

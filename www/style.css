@@ -1,0 +1,58 @@
+*{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+body{
+  background-color: #000000
+}
+
+h1 {
+  color: #CD5C5C;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 60px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #DB7093;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 10px 0px;
+}
+
+p {
+  color: #FFF;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 100;
+}
+
+em {
+  color: #E9967A;
+}
+
+ol {
+  color: #F0E68C;
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 100;
+}
+
+ul {
+  color : #E6E6FA
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 100;
+}
+
+li {
+  color: #FFF5EE;
+  font-size: 15px;
+  line-height: 32px;
+  font-weight: 100;
+}
