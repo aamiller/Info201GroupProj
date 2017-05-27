@@ -58,8 +58,7 @@ shinyUI(shinyUI(fluidPage(theme = "style.css",
                         
                         #tab page 4 by Anni
                         tabPanel("Year Made (ANNI)", 
-                                 tags$h3("Does Year Made Affect Passing Rates?"),
-                                 tags$p("The movie genre has changed dramatically for the past 50 years."),
+                                 tags$h3("The movie genre has changed dramatically for the past 50 years."),
                                  sidebarLayout(
                                    mainPanel(
                                      tags$ul(
@@ -111,25 +110,30 @@ shinyUI(shinyUI(fluidPage(theme = "style.css",
                                      tags$img(src = "disney.jpg", height = 54, width = 96)
                                    )
                                  ),
-                                 tags$blockquote(
-                                   tags$h3("The Bechdel test (in case you didn't know) has three passing requirements: "),
-                                   tags$ol(
-                                        tags$li("a scene with two women talking to each other"),
-                                        tags$li("both women have names"),
-                                        tags$li("women talk about things other than men")
-                                      ),
-                                   a(href = "http://bechdeltest.com/", "(for more information)")
-                                 ),
+                                 
+                                 tags$hr(),
+                                 
+                                 tags$h3("The Bechdel test (in case you didn't know) has three passing requirements: "),
+                                 tags$ol(
+                                      tags$li("a scene with two women talking to each other"),
+                                      tags$li("both women have names"),
+                                      tags$li("women talk about things other than men")
+                                    ),
+                                 a(href = "http://bechdeltest.com/", "(for more information)"),
+                                 
                                  tags$hr(), 
-                                 tags$p("The graphs below show how year made affect the Bechdel Score. Our data set has major movie 
-                                        productions from 1970 - 2013 and is a combination of Bechel Test from FiveThirtyEight and 
-                                        a dataset from IMDB api. "),
+                                 
+                                 tags$h3("Does Year Made Affect Passing Rates?"),
+                                 tags$p("The graphs below show ", strong("how year made affect the Bechdel Test Result"), ". Our data set has major movie 
+                                        productions from ", strong("1970 - 2013"), " and is a combination of Bechel Test from FiveThirtyEight and 
+                                        a dataset from IMDB api."),
                                    
                                  tags$hr(), 
-                                 tags$p("The sliders on the left side of the page allows you to select the
-                                        year range you want to view on the graphs. The radio button allows you to see the films that
-                                        passed the test and the ones that failed. The first graph on the right allows you to see the 
-                                        trends of the pass/fail rate, and the second graph allows you to see the reason those films
+                                 
+                                 tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
+                                        year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
+                                        passed the test and the ones that failed. The ", strong("first graph"), " on the right allows you to see the 
+                                        trends of the pass/fail rate, and the ", strong("second graph"), " allows you to see the reason those films
                                         failed or passed the test, as well as the categories of the tests."),
                                   
                                  #page 4 side bar panel
