@@ -40,7 +40,7 @@ shinyServer(function(input, output) {
     g <- ggplot(group_test, aes(year, imdb_score)) +
       geom_point(aes(color = content_rating, size = budget.x), alpha = 0.5) +
       facet_grid(clean_test~.)
-    ggplotly(g) 
+    ggplotly(g)
   })
   
   output$GenreBechdelAssessmentBar <- renderPlotly({

@@ -25,13 +25,14 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            title = h4("Bechdel Test Report"), 
                            
                            tabPanel(h5("Home"), 
+                                    tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
                                     tags$h3("What is a Bechdel Test?"),
                                     tags$p("According to ", a(href = "http://bechdeltest.com/", "bechdeltest.com")," the Bechdel Test, sometimes called the Mo Movie 
                                             Measure or Bechdel Rule is a simple test which names the following three criteria: "),
                                     tags$ol(
-                                            tags$li("it has to have at least two women in it,"), 
-                                            tags$li("who talk to each other, about "),
-                                            tags$li("something besides a man. ")
+                                      tags$li("it has to have at least two women in it,"), 
+                                      tags$li("who talk to each other, about "),
+                                      tags$li("something besides a man. ")
                                     ),
                                     tags$p("The test was popularized by Alison Bechdel's comic Dykes to Watch Out For, 
                                     in a 1985 strip called The Rule."),
@@ -40,7 +41,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            do fail it."),
                                     tags$h3("Data Set:"),
                                     tags$p("Bechdel Tests of movies from ", a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight.")
-                                           ),
+                                    ),
                                     tags$h3("Questions to be Answered with Statistical Analysis:"),
                                     tags$ol(
                                       tags$li("Does the budget of a movie impact its likelihood of passing or failing the Bechdel Test?"),
@@ -51,7 +52,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$li("Does rating (PG-13, R, etc.) affect the likelihood of passing or failing the test?")
                                     )
                            ),
-
+                           
                            tabPanel(h5("Rating (ADELE)"), titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
                                     mainPanel(
                                       plotlyOutput('contentRatingBechdelAssessment'),
@@ -198,7 +199,20 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       #page 4 radio button widget
                                       radioButtons("button", label = h3("radio buttons"), 
                                                    choices = list("pass" = "PASS", "fail" = "FAIL"),
-                                                   selected = "PASS")
+                                                   selected = "PASS"),
+                                      
+                                      tags$hr(),
+                                      
+                                      tags$h4("Result interpretation:"),
+                                      
+                                      tags$ul(
+                                        tags$li("ok -- pass the test"),
+                                        tags$li("nowomen -- there aren't two women"),
+                                        tags$li("notalk -- two women didn't to each other"),
+                                        tags$li("men -- the topic is men"),
+                                        tags$li("dubious -- the movie fulfilled the category",
+                                                tags$br(), "but the result is dubious")
+                                      )
                                     ),
                                     
                                     #page 4 main panel
@@ -216,12 +230,12 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            ),
                            
                            tabPanel(h5("About Us"),
-                             tags$h1("About Us", align = "center"),
-                             tags$p("We are a group of students in Informatics 200, Technical Foundations, at the University of Washington.", align = "center"),
-                             tags$p("This project was created by Annie, Utako, Adele, Keanan and Sherri as a final for the class.", align = "center"),
-                             tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
-                             tags$img(src = "adele.jpg", height = 120, width = 120)
-                                    
+                                    tags$h1("About Us", align = "center"),
+                                    tags$p("We are a group of students in Informatics 200, Technical Foundations, at the University of Washington.", align = "center"),
+                                    tags$p("This project was created by Anni, Utako, Adele, Keanan and Sherri as a final for the class.", align = "center"),
+                                    tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
+                                    tags$img(src = "adele.jpg", height = 120, width = 120),
+                                    tags$img(src = "Anni.jpg", height = 120, width = 140)
                                     
                            )
                            
