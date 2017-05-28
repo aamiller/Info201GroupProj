@@ -8,6 +8,7 @@ library(plotly)
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
 joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", stringsAsFactors = FALSE)
 source("./script/profitBechdelAssessment.R")
+source("./script/genreAnalysisGraph.R")
 source('./script/year.R')
 source("./script/ratingBarGraph.R")
 shinyServer(function(input, output) {
@@ -42,13 +43,13 @@ shinyServer(function(input, output) {
     ggplotly(g) 
   })
   
-  output$ratingText <- renderText({
-    return("EDIT YOUR TEXT/CONCLUTION HERE FOR RATING PAGE")
+  output$GenreBechdelAssessmentBar <- renderPlotly({
+    BuildGenreBarPlot(joined.movie.data)
   })
   
-  output$profitText <- renderText({
-    return("EDIT YOUR TEXT HERE FOR PROFIT PAGE")
-  })
+  output$main_plot <- renderPlot({    
+    plot(x, y)}, height = 200, width = 300)
+
   
   output$budgetText <- renderText({
     return("EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE")

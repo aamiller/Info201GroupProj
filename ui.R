@@ -38,15 +38,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     tags$p("The Bechdel Test has since become relatively well known and is often referenced in 
                                            movie reviews. It has become a rather embarassing test to fail, though many movies 
                                            do fail it."),
-                                    tags$h3("Data Set :"),
-                                    tags$p("Bechdel Tests of movies from ", a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight")
+                                    tags$h3("Data Set:"),
+                                    tags$p("Bechdel Tests of movies from ", a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight.")
                                            ),
                                     tags$h3("Questions to be Answered with Statistical Analysis:"),
                                     tags$ol(
-                                      tags$li("Does the budget of a movie impact its likelihood of passing or failing the Bechdel Test? 
-                                              What is the median budget? Average budget?"),
-                                      tags$li("Does the profit the movie made have a relation to how likely a movie was to pass or fail? 
-                                              What is the median profit?"),
+                                      tags$li("Does the budget of a movie impact its likelihood of passing or failing the Bechdel Test?"),
+                                      tags$li("Does the profit the movie made have a relation to how likely a movie was to pass or fail?"),
                                       tags$li("Is there a trend in Bechdel Test passing or failing based on the year the movie was made?"),
                                       tags$li("Does the genre of the movie increase the likelihood of passing or failing the Bechdel Test?"),
                                       tags$li("How is the IMDB rating related to the movie's pass/fail status?"),
@@ -56,8 +54,20 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
 
                            tabPanel(h5("Rating (ADELE)"), titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
                                     mainPanel(
-                                      textOutput("ratingText"),
-                                      plotlyOutput('contentRatingBechdelAssessment')
+                                      plotlyOutput('contentRatingBechdelAssessment'),
+                                      tags$h2("Notes", align = "center"),
+                                      tags$p("This graph displays the percentages of films that passed by their content rating. A large number of films in our data set did not contain ratings, therefore these graphs draw from a smaller amount of data than other graphs in this project. A future question to investigate is the gender distribution of shows and how that might affect the likehood of having two women talk to each other, based on the number of women in the cast.", align = "center"),
+                                      tags$h2("Content Ratings Guide", align = "center"),
+                                      tags$p(strong("PG -- "), "Patental guidance suggested, some material may not be suitable for children.", align = "center"),
+                                      tags$p(strong("PG-13 --"), "Parents strongly cuationed. Some material may be inappropriate for children under 13.", align = "center"),
+                                      tags$p(strong("R -- "), "Restricted, under 17 requires accompanying parent or adult guardian.", align = "center"),
+                                      tags$p(strong("NC-17 -- "), "No one 17 and under admitted.", align = "center"),
+                                      tags$p(strong("Rating X -- "), "In some countries, X or XXX is or has been a motion picture rating reserved for the most explicit films. Films rated X are intended only for viewing by adults, usually defined as people over the age of 18 or 21.", align = "center"),
+                                      tags$p(strong("Rating TV-14 -- "), "Programs rated TV-14 may contain some material that parents or adult guardians may find unsuitable for children under the age of 14. The FCC warns that \"Parents are cautioned to exercise some care in monitoring this program and are cautioned against letting children under the age of 14 watch unattended.\"", align = "center"),
+                                      tags$p(strong("Rating G -- "), "General Audiences — all ages admitted, meaning there is nothing in theme, language, nudity, sex, violence or other matters that the ratings board thinks would offend parents whose younger children view the picture.", align = "center"),
+                                      tags$p(strong("Rating Not Rated -- "), "Movie was never given a content rating. Sometimes used deliberately for explicit movies that might otherwise be rating R or X.", align = "center"),
+                                      tags$p("Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
+                                      
                                     )
                            ),
                            tabPanel(h5("Profit (ADELE)"), titlePanel('Does Profit or Budget Affect Passing Rates?'),
@@ -68,13 +78,25 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                         
                                         # Input to select variable to map
                                         selectInput('scatterVarX', label = 'Variable to Map to X Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross')),
-                                        selectInput('scatterVarY', label = 'Variable to Map to Y Axis', choices = list('Budget' = 'budget', 'Domestic Gross' = 'domgross', 'International Gross' = 'intgross'))
+                                        selectInput('scatterVarY', label = 'Variable to Map to Y Axis', choices = list('Domestic Gross' = 'domgross', 'Budget' = 'budget', 'International Gross' = 'intgross'))
                                       ),
                                       
                                       # Main panel: display plotly map
                                       mainPanel(
                                         plotlyOutput('profitBechdelAssessment'),
-                                        textOutput('profitText'))
+                                        textOutput('profitText'),
+                                        tags$h2("Notes"),
+                                        tags$p("It is worth noting that not all movies have a distinct International and a Domestic Gross in our data set, which is visible in a linear line that forms in the dataset."),
+                                        tags$p("Most of the movies that pass the Bechdel Test have a budget below 50 million dollars. Outside of that, the majority do not pass."),
+                                        tags$p("According to Investopedia.com, the average cost for a major studio to produce a movie is 65 million dollars plus 35 million in marketing, which puts most major productions beyond the range where most movies past the Bechdel Test."))
+                                    )
+                           ),
+                           tabPanel(h5("Genre (ADELE)"), 
+                                    titlePanel('Does Genre Affect Passing Rates?'),
+                                    #sidebarPanel(add your plot here),
+                                    mainPanel(
+                                      #plotlyOutput("YOUR PLOT NAME),
+                                      plotlyOutput('GenreBechdelAssessmentBar')
                                     )
                            ),
                            tabPanel(h5("Budget (SHERRI)"), 
@@ -193,8 +215,14 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           tabPanel(h5("About us")
-                             
+                           tabPanel(h5("About Us"),
+                             tags$h1("About Us", align = "center"),
+                             tags$p("We are a group of students in Informatics 200, Technical Foundations, at the University of Washington.", align = "center"),
+                             tags$p("This project was created by Annie, Utako, Adele, Keanan and Sherri as a final for the class.", align = "center"),
+                             tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
+                             tags$img(src = "adele.jpg", height = 120, width = 120)
+                                    
+                                    
                            )
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:

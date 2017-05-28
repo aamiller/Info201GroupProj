@@ -44,5 +44,7 @@ FixAxisLabels <- function(input.var.name) {
   #print(input.var.name)
   if (input.var.name == 'domgross') { input.var.name <- "Domestic Gross"}
   if (input.var.name == "intgross") { input.var.name <- "International Gross"}
-  return(input.var.name)  
+  if (input.var.name == "budget") { input.var.name <- "Budget"}
+  
+  return(input.var.name)
 }
