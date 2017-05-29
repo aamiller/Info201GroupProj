@@ -22,34 +22,53 @@ source('./script/profitBechdelAssessment.R')
 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
-                           title = h1("Bechdel Test Report"), 
+                           title = h5("BECHDEL TEST REPORT", class = "title"), 
                            
                            tabPanel(h5("Home"), 
+                                    tags$div(id = "cover",
+                                             tags$h3("Introduction", class = "cover-content")
+                                             ),
                                     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
-                                    tags$h2("What is a Bechdel Test?", class = "cover"),
-                                    tags$p("According to ", a(href = "http://bechdeltest.com/", "bechdeltest.com")," the Bechdel Test, sometimes called the Mo Movie 
-                                            Measure or Bechdel Rule is a simple test which names the following three criteria: ", class ="p1"),
-                                    tags$ol(class = "l1",
-                                      tags$li("it has to have at least two women in it,"), 
-                                      tags$li("who talk to each other, about "),
-                                      tags$li("something besides a man. ")
-                                    ),
-                                    tags$p("The test was popularized by Alison Bechdel's comic Dykes to Watch Out For, 
-                                    in a 1985 strip called The Rule.", class = "p1"),
-                                    tags$p("The Bechdel Test has since become relatively well known and is often referenced in 
-                                           movie reviews. It has become a rather embarassing test to fail, though many movies 
-                                           do fail it.", class = "p1"),
-                                    tags$h3("Data Set:",class = "h1"),
-                                    tags$p("Bechdel Tests of movies from ", a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight.")
-                                    , class = "p1"),
-                                    tags$h3("Questions to be Answered with Statistical Analysis:", class = "h1"),
-                                    tags$ol(class = "l1",
-                                      tags$li("Does the budget of a movie impact its likelihood of passing or failing the Bechdel Test?"),
-                                      tags$li("Does the profit the movie made have a relation to how likely a movie was to pass or fail?"),
-                                      tags$li("Is there a trend in Bechdel Test passing or failing based on the year the movie was made?"),
-                                      tags$li("Does the genre of the movie increase the likelihood of passing or failing the Bechdel Test?"),
-                                      tags$li("How is the IMDB rating related to the movie's pass/fail status?"),
-                                      tags$li("Does rating (PG-13, R, etc.) affect the likelihood of passing or failing the test?")
+                                    tags$div(class = "movies",
+                                             tags$div(class = "movie",
+                                                      tags$img(src = "intro1.png"),
+                                                      tags$h3("What is a Bechdel Test?", class = "header"),
+                                                      tags$h4("According to ", a(href = "http://bechdeltest.com/", "bechdeltest.com"),
+                                                              " the Bechdel Test, sometimes called the Mo Movie Measure or Bechdel Rule 
+                                                              is a simple test which names the following three criteria: The test was 
+                                                              popularized by Alison Bechdel's comic Dykes to Watch Out For, in a 1985 
+                                                              strip called The Rule.", class = "para1")
+                                                      ),
+                                             tags$div(class = "movie",
+                                                      tags$img(src = "intro5.jpg"),
+                                                      tags$h3("Statistical Analysis:", class = "header"),
+                                                      tags$ol(class = "para2",
+                                                              tags$li("Does the budget impact the test result?"),
+                                                              tags$li("Does the profit impact the test result?"),
+                                                              tags$li("Is there a trend based on the year?"),
+                                                              tags$li("Does the genre impact the test result?"),
+                                                              tags$li("Is the IMDB rating related to the test result?"),
+                                                              tags$li("Does rating (PG-13, R, etc.) affect the test result?")
+                                                      )
+                                             ),
+                                             tags$div(class = "movie",
+                                                      tags$img(src = "intro3.jpg"),
+                                                      tags$h3("Data Set:", class = "header"),
+                                                      tags$h4(class = "para2", "Bechdel Tests of movies from ", 
+                                                              a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight.")),
+                                                      tags$h4("The Bechdel Test has since become relatively well known and is often 
+                                                              referenced in movie reviews. It has become a rather embarassing test 
+                                                              to fail, though many movies do fail it.", class = "para2")
+                                                      ),
+                                             tags$div(class = "movie",
+                                                      tags$img(src = "intro4.jpg"),
+                                                      tags$h3("Three test categories", class = "header"),
+                                                      tags$ol(class = "para1",
+                                                              tags$li("it has to have at least two women in it,"), 
+                                                              tags$li("who talk to each other, about "),
+                                                              tags$li("something besides a man. ")
+                                                      )
+                                             )
                                     )
                            ),
                            

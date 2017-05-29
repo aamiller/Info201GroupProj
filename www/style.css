@@ -1,16 +1,65 @@
-h1 {
-  //background-image: url("minion.jpg");
-  font-size: 50px;
-  text-align: center;
-  text-decoration: underline;
-  text-transform: uppercase;
-  line-height: 1px;
+
+/*this is the navbar setting*/
+
+h5 {
+    font-family: fantasy;
+    text-align: center;
 }
 
-h3 {
-  font-family: "Arial Black", Gadget, sans-serif;
+.title{
+  font-size: 23px;
+}
+
+/* this is home page setting*/
+#cover {
+  background: url("minion.jpg") no-repeat center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+  position: relative;
+  margin-top: -50px;
+  margin-bottom: -10px;
+  font-family: fantasy;
+}
+
+.cover-content {
+  box-sizing: border-box;
+  position: relative;
+  top: 420px;
+  font-size: 60px;
+  text-decoration: underline;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.movies {
+  background: #EEEFF1;
+  box-sizing: border-box;
+  margin: 20px auto;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.movie {
+  display: inline-block;
+  margin: 0px 2% 80px 2%;
+  width: 45%;
+}
+
+.movie img {
+  width: 80%;
+}
+
+.header {
   font-size: 35px;
-  line-height: 50px;
+  font-family: fantasy;
+}
+.para1{
+  font-size: 30px;
+}
+
+.para2 {
+  font-size: 25px;
 }
 
 p {
@@ -24,30 +73,6 @@ em {
   color: #E9967A;
 }
 
-strong {
-}
-
-ol {
-  font-size: 25px;
-  line-height: 32px;
-  font-weight: 100;
-}
-
-ul {
-  font-size: 25px;
-  line-height: 32px;
-  font-weight: 100;
-}
-
-li {
-  font-size: 15px;
-  line-height: 32px;
-  font-weight: 100;
-}
-
-.p1, l1, h1 {
-  //position: relative;
-}
 
 #profile {
   border-radius: 100%;
