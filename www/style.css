@@ -1,31 +1,20 @@
-*{
-  font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-body{
-  background-color: #000000
-}
-
 h1 {
-  color: #CD5C5C;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 60px;
-  margin: 0;
+  //background-image: url("minion.jpg");
+  font-size: 50px;
   text-align: center;
+  text-decoration: underline;
   text-transform: uppercase;
+  line-height: 1px;
 }
 
 h3 {
-  color: #DB7093;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 30px;
-  margin: 10px 0px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 35px;
+  line-height: 50px;
 }
 
 p {
-  color: #FFF;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: 25px;
   line-height: 32px;
   font-weight: 100;
@@ -36,30 +25,30 @@ em {
 }
 
 strong {
-  color: #C71585;
-}
-
-a {
-  color: #6495ED;
 }
 
 ol {
-  color: #F0E68C;
   font-size: 25px;
   line-height: 32px;
   font-weight: 100;
 }
 
 ul {
-  color : #E6E6FA;
   font-size: 25px;
   line-height: 32px;
   font-weight: 100;
 }
 
 li {
-  color: #FFF5EE;
   font-size: 15px;
   line-height: 32px;
   font-weight: 100;
+}
+
+.p1, l1, h1 {
+  //position: relative;
+}
+
+#profile {
+  border-radius: 100%;
 }
