@@ -63,17 +63,56 @@ h5 {
 }
 
 p {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 25px;
-  line-height: 32px;
-  font-weight: 100;
+    font-size: 15px;
+}
+/*this is for Rating page*/
+.guide {
+  font-size: 15px;
 }
 
+.rating {
+  font-size: 30px;
+}
+/*this is for the page of year made*/
+.year {
+  font-size: 20px;
+}
 em {
   color: #E9967A;
 }
-
+.para3 {
+  font-size: 20px;
+}
+.inter {
+  font-size: 20px;
+}
+strong{
+  color: #E9967A;
+}
 
 #profile {
   border-radius: 100%;
+}
+
+/*search*/
+
+input {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-size: 25px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/*When the input field gets focus, change its width to 100%*/
+input:focus {
+    width: 50%;
 }
