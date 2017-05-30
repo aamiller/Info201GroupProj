@@ -297,7 +297,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            ), 
                            tabPanel(h5("search movie"),
                                     tags$h3("type your movie here", class = "header"),
-                                    tags$input(type="text", name="search", placeholder="Search..")
+                                    tags$input(type="text", name="search", placeholder="Search.."),
+                                    tags$button()
                            )
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:
