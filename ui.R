@@ -158,7 +158,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            aknowledging gender-equality, more and more movies gave the lead role to female charaters.
                                            Major productions: ", em("Inception(2010), moonlight(2016), Marvel Movies, Disney Movies."))
                                         )
-                                      ),
+                                      ), 
                                       sidebarPanel(
                                         tags$img(src = "godfather.jpg", height = 100, width = 70),
                                         tags$img(src = "jaws.jpg", height = 120, width = 80),

@@ -35,7 +35,7 @@ layout <- list(
     showcoastlines = TRUE, 
     showframe = FALSE
   ), 
-  title = "World Map"
+  title = "Passage Rates by Country"
 )
 p <- plot_ly(text = ~paste("Total # of Movies: ", country.movie.data$number.movies))
 p <- add_trace(p, z=trace1$z, autocolorscale=trace1$autocolorscale, colorbar=trace1$colorbar, locations=trace1$locations, marker=trace1$marker, colors=trace1$colors, 
