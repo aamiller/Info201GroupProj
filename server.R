@@ -57,13 +57,21 @@ shinyServer(function(input, output) {
   })
   
   output$countryText <- renderText({
-     return("This graph displays the ratio of films that passed by their content rating to total number
-            of films. Some countries have had very few movies that have been given the Berchdel test,
-            therefore some of the country ratios do not have enough data for them to be entirely accurate.
-            We still found value in showing the data by country which helps us see general trends in countries
-            with enough data to defend their ratio. We notice that the more countries considered to be more  
-            progressive like France and Canada did much better than less progressive countries such as China.
-            A future question to investigate is how the overwhelming political ideologies in these countries 
+     return("The graph above shows the ratio of number of films that PASSED the test to the number of  
+            TOTAL number of films produced in the country. Solid blue countries indicates a 100% passage
+            rate. Solid red countries indicate a 0% passage rate. Most of the countries with these 
+            extreme passage rates have very few data points, for example: Mexico has a 0% passage rate
+            but this rate is based on only one film that was produced in the country. Some countries have
+            had very few movies represented in the Bechdel data, therefore some of the country ratios
+            do not have enough data for them to be entirely accurate. For example: many countries (Russia,
+            India, Thailand, Israel, Brazil, Peru, Mexico, Norway, Finland, Columbia, Taiwan, Cameroon,
+            the Czech Republic, Italy, the Netherlands, South Africa, and South Korea) have fewer than
+            5 movies that have been evaluated by the Bechdel test. We still found value in showing the data
+            by country which helps us see general trends in countries around the world.
+            We noticed that more countries considered to be more progressive (based on the social
+            progress index of 2016) like Germany and Canada did much better than less progressive countries
+            such as China. While there isn't enough data here to evaluate performance based on social progress, 
+            a future question to investigate is how the overwhelming political ideologies in these countries 
             affect the likehood of having two women talk to each other.")
   })
   
