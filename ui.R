@@ -84,7 +84,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$p(strong("NC-17 -- "), "No one 17 and under admitted.", align = "center"),
                                       tags$p(strong("Rating X -- "), "In some countries, X or XXX is or has been a motion picture rating reserved for the most explicit films. Films rated X are intended only for viewing by adults, usually defined as people over the age of 18 or 21.", align = "center"),
                                       tags$p(strong("Rating TV-14 -- "), "Programs rated TV-14 may contain some material that parents or adult guardians may find unsuitable for children under the age of 14. The FCC warns that \"Parents are cautioned to exercise some care in monitoring this program and are cautioned against letting children under the age of 14 watch unattended.\"", align = "center"),
-                                      tags$p(strong("Rating G -- "), "General Audiences — all ages admitted, meaning there is nothing in theme, language, nudity, sex, violence or other matters that the ratings board thinks would offend parents whose younger children view the picture.", align = "center"),
+                                      tags$p(strong("Rating G -- "), "General Audiences ??? all ages admitted, meaning there is nothing in theme, language, nudity, sex, violence or other matters that the ratings board thinks would offend parents whose younger children view the picture.", align = "center"),
                                       tags$p(strong("Rating Not Rated -- "), "Movie was never given a content rating. Sometimes used deliberately for explicit movies that might otherwise be rating R or X.", align = "center"),
                                       tags$p("Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
                                       
@@ -212,11 +212,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     sidebarPanel(
                                       
                                       #page 4 slider widget
-                                      sliderInput("slider", label = h3("Slider"), min = year_data$year[44], 
+                                      sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
                                                   max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
                                       
                                       #page 4 radio button widget
-                                      radioButtons("button", label = h3("radio buttons"), 
+                                      radioButtons("button", label = h3("Test Result"), 
                                                    choices = list("pass" = "PASS", "fail" = "FAIL"),
                                                    selected = "PASS"),
                                       
