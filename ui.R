@@ -72,25 +72,35 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           tabPanel(h5("Rating (ADELE)"), titlePanel('Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
+                           tabPanel(h5("Rating (ADELE)"), 
+                                    tags$h3(class = "header",'Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
                                     mainPanel(
                                       plotlyOutput('contentRatingBechdelAssessment'),
                                       tags$h2("Notes", align = "center"),
-                                      tags$p("This graph displays the percentages of films that passed by their content rating. A large number of films in our data set did not contain ratings, therefore these graphs draw from a smaller amount of data than other graphs in this project. A future question to investigate is the gender distribution of shows and how that might affect the likehood of having two women talk to each other, based on the number of women in the cast.", align = "center"),
-                                      tags$h2("Content Ratings Guide", align = "center"),
-                                      tags$p(strong("PG -- "), "Patental guidance suggested, some material may not be suitable for children.", align = "center"),
-                                      tags$p(strong("PG-13 --"), "Parents strongly cuationed. Some material may be inappropriate for children under 13.", align = "center"),
-                                      tags$p(strong("R -- "), "Restricted, under 17 requires accompanying parent or adult guardian.", align = "center"),
-                                      tags$p(strong("NC-17 -- "), "No one 17 and under admitted.", align = "center"),
-                                      tags$p(strong("Rating X -- "), "In some countries, X or XXX is or has been a motion picture rating reserved for the most explicit films. Films rated X are intended only for viewing by adults, usually defined as people over the age of 18 or 21.", align = "center"),
-                                      tags$p(strong("Rating TV-14 -- "), "Programs rated TV-14 may contain some material that parents or adult guardians may find unsuitable for children under the age of 14. The FCC warns that \"Parents are cautioned to exercise some care in monitoring this program and are cautioned against letting children under the age of 14 watch unattended.\"", align = "center"),
-                                      tags$p(strong("Rating G -- "), "General Audiences ??? all ages admitted, meaning there is nothing in theme, language, nudity, sex, violence or other matters that the ratings board thinks would offend parents whose younger children view the picture.", align = "center"),
-                                      tags$p(strong("Rating Not Rated -- "), "Movie was never given a content rating. Sometimes used deliberately for explicit movies that might otherwise be rating R or X.", align = "center"),
-                                      tags$p("Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
-                                      
+                                      tags$p("This graph displays the percentages of films that passed by their content 
+                                             rating. A large number of films in our data set did not contain ratings, 
+                                             therefore these graphs draw from a smaller amount of data than other graphs 
+                                             in this project. A future question to investigate is the gender distribution 
+                                             of shows and how that might affect the likehood of having two women talk to 
+                                             each other, based on the number of women in the cast.", align = "center", 
+                                             class = "rating")
+                                    ),
+                                    
+                                    sidebarPanel(
+                                      tags$h2(class = "header", "Content Ratings Guide", align = "center"),
+                                      tags$p(class = "guide", strong("PG -- "), "Patental guidance suggested, some material may not be suitable for children.", align = "center"),
+                                      tags$p(class = "guide", strong("PG-13 --"), "Parents strongly cuationed. Some material may be inappropriate for children under 13.", align = "center"),
+                                      tags$p(class = "guide", strong("R -- "), "Restricted, under 17 requires accompanying parent or adult guardian.", align = "center"),
+                                      tags$p(class = "guide", strong("NC-17 -- "), "No one 17 and under admitted.", align = "center"),
+                                      tags$p(class = "guide", strong("Rating X -- "), "In some countries, X or XXX is or has been a motion picture rating reserved for the most explicit films. Films rated X are intended only for viewing by adults, usually defined as people over the age of 18 or 21.", align = "center"),
+                                      tags$p(class = "guide", strong("Rating TV-14 -- "), "Programs rated TV-14 may contain some material that parents or adult guardians may find unsuitable for children under the age of 14. The FCC warns that \"Parents are cautioned to exercise some care in monitoring this program and are cautioned against letting children under the age of 14 watch unattended.\"", align = "center"),
+                                      tags$p(class = "guide", strong("Rating G -- "), "General Audiences ??? all ages admitted, meaning there is nothing in theme, language, nudity, sex, violence or other matters that the ratings board thinks would offend parents whose younger children view the picture.", align = "center"),
+                                      tags$p(class = "guide", strong("Rating Not Rated -- "), "Movie was never given a content rating. Sometimes used deliberately for explicit movies that might otherwise be rating R or X.", align = "center"),
+                                      tags$p(class = "guide", "Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
                                     )
                            ),
-                           tabPanel(h5("Profit (ADELE)"), titlePanel('Does Profit or Budget Affect Passing Rates?'),
+                           tabPanel(h5("Profit (ADELE)"), 
+                                    tags$h3(class = "header", 'Does Profit or Budget Affect Passing Rates?'),
                                     sidebarLayout(
                                       
                                       # Side panel for controls
@@ -112,7 +122,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            tabPanel(h5("Genre (ADELE)"), 
-                                    titlePanel('Does Genre Affect Passing Rates?'),
+                                    tags$h3(class = "header", 'Does Genre Affect Passing Rates?'),
                                     #sidebarPanel(add your plot here),
                                     mainPanel(
                                       #plotlyOutput("YOUR PLOT NAME),
@@ -120,7 +130,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            tabPanel(h5("Budget (SHERRI)"), 
-                                    titlePanel('Does Budget Affect Passing Rates?'),
+                                    tags$h3(class = "header", 'Does Budget Affect Passing Rates?'),
                                     #sidebarPanel(add your plot here),
                                     mainPanel(
                                       #plotlyOutput("YOUR PLOT NAME),
@@ -130,10 +140,10 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
                            #tab page 4 by Anni
                            tabPanel(h5("Year Made (ANNI)"), 
-                                    tags$h3("The movie genre has changed dramatically for the past 50 years."),
+                                    tags$h3(class = "header", "The movie genre has changed dramatically for the past 50 years."),
                                     sidebarLayout(
                                       mainPanel(
-                                        tags$ul(
+                                        tags$ul(class = "year",
                                           tags$li("1970s is a 'creative high point' in the movie industry. Films were
                                            influenced by the hippie movement, free love and civil rights movement,
                                            the language and adult content of the movies changed. These movies used 
@@ -185,8 +195,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                                     tags$hr(),
                                     
-                                    tags$h3("The Bechdel test (in case you didn't know) has three passing requirements: "),
-                                    tags$ol(
+                                    tags$h3(class = "header", "The Bechdel test (in case you didn't know) has three passing requirements: "),
+                                    tags$ol(class = "year",
                                       tags$li("a scene with two women talking to each other"),
                                       tags$li("both women have names"),
                                       tags$li("women talk about things other than men")
@@ -195,10 +205,10 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                                     tags$hr(), 
                                     
-                                    tags$h3("Does Year Made Affect Passing Rates?"),
+                                    tags$h3(class = "header", "Does Year Made Affect Passing Rates?"),
                                     tags$p("The graphs below show ", strong("how year made affect the Bechdel Test Result"), ". Our data set has major movie 
                                     productions from ", strong("1970 - 2013"), " and is a combination of Bechel Test from FiveThirtyEight and 
-                                    a dataset from IMDB api."),
+                                    a dataset from IMDB api.", class = "para3"),
                                     
                                     tags$hr(), 
                                     
@@ -206,7 +216,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
                                     passed the test and the ones that failed. The ", strong("first graph"), " on the right allows you to see the 
                                     trends of the pass/fail rate, and the ", strong("second graph"), " allows you to see the reason those films
-                                    failed or passed the test, as well as the categories of the tests."),
+                                    failed or passed the test, as well as the categories of the tests.", class = "para3"),
+                                    
+                                    tags$p(class = "para3", "As you can see in this graph, the passing rate increased gradually.
+                                           This is might due to public recognition of the importance of gender equality or it could
+                                           simply be the pressure by the society."),
                                     
                                     #page 4 side bar panel
                                     sidebarPanel(
@@ -222,9 +236,9 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       
                                       tags$hr(),
                                       
-                                      tags$h4("Result interpretation:"),
+                                      tags$h4("Result interpretation:", class = "inter"),
                                       
-                                      tags$ul(
+                                      tags$ul(class = "inter",
                                         tags$li("ok -- pass the test"),
                                         tags$li("nowomen -- there aren't two women"),
                                         tags$li("notalk -- two women didn't to each other"),
@@ -242,7 +256,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            ),
                            
                            tabPanel(h5("Country (KEENAN)"), 
-                                    titlePanel('Does Country Made Affect Passing Rates?'),
+                                    tags$h3(class = "header", 'Does Country Made Affect Passing Rates?'),
                                     mainPanel(
                                       plotlyOutput('countryGraph', width = "950", height = "700"),
                                       tags$h2("Notes", align = "center"),
@@ -251,12 +265,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            ),
                            
                            tabPanel(h5("About Us"),
-                                    tags$h1("About Us", align = "center"),
+                                    tags$h1("About Us", align = "center", class = "header"),
                                     tags$p("We are a group of students in Informatics 200, Technical Foundations, at the University of Washington.", align = "center"),
                                     tags$p("This project was created by Anni, Utako, Adele, Keanan and Sherri as a final for the class.", align = "center"),
                                     tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
                                     tags$img(src = "adele.jpg", height = 120, width = 120, id = "profile"),
-                                    tags$img(src = "Anni.jpg", height = 120, width = 140, id = "profile")
+                                    tags$img(src = "Anni.jpg", height = 120, width = 140, id = "profile"),
+                                    tags$img(src = "Utako.jpg", height = 120, width = 140, id = "profile")
                                     
                            )
                            
