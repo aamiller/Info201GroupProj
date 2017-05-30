@@ -116,9 +116,9 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                         plotlyOutput('profitBechdelAssessment'),
                                         textOutput('profitText'),
                                         tags$h2("Notes"),
-                                        tags$p("It is worth noting that not all movies have a distinct International and a Domestic Gross in our data set, which is visible in a linear line that forms in the dataset."),
-                                        tags$p("Most of the movies that pass the Bechdel Test have a budget below 50 million dollars. Outside of that, the majority do not pass."),
-                                        tags$p("According to Investopedia.com, the average cost for a major studio to produce a movie is 65 million dollars plus 35 million in marketing, which puts most major productions beyond the range where most movies past the Bechdel Test."))
+                                        tags$p(class = "guide", "It is worth noting that not all movies have a distinct International and a Domestic Gross in our data set, which is visible in a linear line that forms in the dataset."),
+                                        tags$p(class = "guide", "Most of the movies that pass the Bechdel Test have a budget below 50 million dollars. Outside of that, the majority do not pass."),
+                                        tags$p(class = "guide", "According to Investopedia.com, the average cost for a major studio to produce a movie is 65 million dollars plus 35 million in marketing, which puts most major productions beyond the range where most movies past the Bechdel Test."))
                                     )
                            ),
                            tabPanel(h5("Genre (ADELE)"), 
@@ -126,7 +126,9 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     #sidebarPanel(add your plot here),
                                     mainPanel(
                                       #plotlyOutput("YOUR PLOT NAME),
-                                      plotlyOutput('GenreBechdelAssessmentBar')
+                                      plotlyOutput('GenreBechdelAssessmentBar'),
+                                      tags$h2("Notes"),
+                                      tags$p(class = "guide", "We noticed that adventure genre movies pass frequently, as well as thriller movies. We speculate that this is the case for thriller movies because the topic of conversation is usually about a monster or danger.")
                                     )
                            ),
                            tabPanel(h5("Budget (SHERRI)"), 
