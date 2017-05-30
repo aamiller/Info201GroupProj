@@ -241,10 +241,12 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           tabPanel(h5("Country (KEANAN)"), 
+                           tabPanel(h5("Country (KEENAN)"), 
                                     titlePanel('Does Country Made Affect Passing Rates?'),
                                     mainPanel(
-                                      textOutput("countryText")
+                                      plotlyOutput('countryGraph', width = "950", height = "700"),
+                                      tags$h2("Notes", align = "center"),
+                                      textOutput('countryText')
                                     )
                            ),
                            

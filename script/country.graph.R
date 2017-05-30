@@ -3,16 +3,15 @@ library(dplyr)
 library(shiny)
 library(plotly)
 
-bechdel <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
-full_data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv")
 
 
-country.data <- select(full_data, country, binary)
-country.movie.data <- country.data %>% group_by(country) %>% summarise("number.passed" = sum(binary == "PASS"),
+
+countryGraph <- function(country.movie.data) {
+country.movie.data <- country.movie.data %>% group_by(country) %>% summarise("number.passed" = sum(binary == "PASS"),
                                                                  "number.failed" = sum(binary == "FAIL"))
 country.movie.data <- mutate(country.movie.data, "passage.rate" = number.passed/(number.passed + number.failed))
 country.movie.data <- mutate(country.movie.data, "number.movies" = number.passed + number.failed)                
-country.movie.data <- country.movie.data[-c(22), ] #remove "official site", cannot be mapped as location.
+country.movie.data <- country.movie.data[-c(22), ] #remove "official site", cannot be mapped as location, not a location.
 country.movie.data <- country.movie.data[-c(31), ] #remove west germany, no longer a representable country
 trace1 <- list(
   z = country.movie.data$passage.rate,
@@ -28,7 +27,6 @@ trace1 <- list(
   reversescale = FALSE, 
   type = "choropleth", 
   zmin = 0
-
 )
 data <- list(trace1)
 layout <- list(
@@ -43,3 +41,7 @@ p <- plot_ly(text = ~paste("Total # of Movies: ", country.movie.data$number.movi
 p <- add_trace(p, z=trace1$z, autocolorscale=trace1$autocolorscale, colorbar=trace1$colorbar, locations=trace1$locations, marker=trace1$marker, colors=trace1$colors, 
                reversescale=trace1$reversescale, type=trace1$type, zmin=trace1$zmin)
 p <- layout(p, geo=layout$geo, title=layout$title)
+
+  return (p)
+}
+

@@ -11,6 +11,7 @@ source("./script/profitBechdelAssessment.R")
 source("./script/genreAnalysisGraph.R")
 source('./script/year.R')
 source("./script/ratingBarGraph.R")
+source("./script/country.graph.R")
 shinyServer(function(input, output) {
 
   output$profitBechdelAssessment <- renderPlotly({
@@ -56,8 +57,20 @@ shinyServer(function(input, output) {
   })
   
   output$countryText <- renderText({
-    return("EDIT YOUR TEXT/CONCLUTION HERE FOR COUNTRY PAGE")
+     return("This graph displays the ratio of films that passed by their content rating to total number
+            of films. Some countries have had very few movies that have been given the Berchdel test,
+            therefore some of the country ratios do not have enough data for them to be entirely accurate.
+            We still found value in showing the data by country which helps us see general trends in countries
+            with enough data to defend their ratio. We notice that the more countries considered to be more  
+            progressive like France and Canada did much better than less progressive countries such as China.
+            A future question to investigate is how the overwhelming political ideologies in these countries 
+            affect the likehood of having two women talk to each other.")
   })
+  
+  output$countryGraph <- renderPlotly({
+    return(countryGraph(joined.movie.data))
+  })
+  
   #YOUR SHOULD MODIFY THIS FILE BY ADDINT SOMETHING LIKE THIS???
   #output$pg1 <- renderPlot({ 
   #  return(YOUR.FUNCTION.NAME(movie.data, OTHER.PARAMETER))
