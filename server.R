@@ -31,8 +31,7 @@ shinyServer(function(input, output) {
   
     plot_ly(x = modified_data$year, y = (modified_data[, input$button] / modified_data$total), 
                  type = "scatter", mode = "lines", color = modified_data$pass_ratio, 
-                 name = input$button) %>% 
-         layout(title = paste(input$button,"rate from 1970 to 2013"))
+                 name = input$button) 
   })
   
   output$testResults <- renderPlotly({

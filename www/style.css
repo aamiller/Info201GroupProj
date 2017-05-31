@@ -138,6 +138,7 @@ em {
   text-align: center;
   margin-left: 25%;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 .inter {
   font-size: 20px;
@@ -146,17 +147,16 @@ strong{
   color: #E9967A;
 }
 
-.hr {
-  width:75%;
-  height:10px;
-  color: #FFFFFF;
-  background-color: #FFFFFF;
+hr {
+  border: 1px solid #778899;
+  width:70%;
 }
 
 /*about us page*/
 
 #profile {
   border-radius: 100%;
+  margin:5%;
 }
 
 /*search*/

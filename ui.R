@@ -200,7 +200,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              tags$img(src = "harry.jpg", class = "hvrbox-layer_bottom"),
                                              tags$div(class = "hvrbox-layer_top",
                                                       tags$p("2000s was strongly influenced by the high technology. Many major websites and social medias took over the internet. The films in this
-                                                                 decade was also influenced by ", em("911 attacks, Asian tsunami and Hurricans."), "Major
+                                                                 decade was also influenced by 911 attacks, Asian tsunami and Hurricans.Major
                                                                  productions: ", em("Avatar(2009), Pirates of the Caribbean(2003),
                                                                                     Harry Potter and the Sorcerer's Stone (2001)"), class = "hvrbox-text"))
                                     ),
@@ -223,41 +223,36 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            class = "para3"),
                                     
                                     tags$hr(), 
+                                    tags$h3(class = "header", "Passing rate from 1970 - 2013"),
                                     
-                                    sidebarLayout(
-                                      #page 4 side bar panel
-                                      sidebarPanel(
-                                        
-                                        #page 4 slider widget
-                                        sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
-                                                    max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
-                                        
-                                        #page 4 radio button widget
-                                        radioButtons("button", label = h3("Test Result"), 
-                                                     choices = list("pass" = "PASS", "fail" = "FAIL"),
-                                                     selected = "PASS"),
-                                        
-                                        tags$hr(),
-                                        
-                                        tags$h4("Result interpretation:", class = "inter"),
-                                        
-                                        tags$ul(class = "inter",
-                                                tags$li("ok -- pass the test"),
-                                                tags$li("nowomen -- there aren't two women"),
-                                                tags$li("notalk -- two women didn't to each other"),
-                                                tags$li("men -- the topic is men"),
-                                                tags$li("dubious -- the movie fulfilled the category",
-                                                        tags$br(), "but the result is dubious")
-                                        )
-                                      ),
-                                      
-                                      #page 4 main panel
-                                      mainPanel(
-                                        plotlyOutput('linegraph'),
-                                        plotlyOutput('testResults')
-                                      )
-                                    ),
-                                    
+                                        fluidRow(
+                                          column(3, offset = 2,
+                                                 sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
+                                                             max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
+                                                 
+                                                 #page 4 radio button widget
+                                                 radioButtons("button", label = h3("Test Result"), 
+                                                              choices = list("pass" = "PASS", "fail" = "FAIL"),
+                                                              selected = "PASS"),
+                                                 
+                                                 tags$h4("Result interpretation:", class = "inter"),
+                                                 
+                                                 tags$ul(class = "inter",
+                                                         tags$li("ok -- pass the test"),
+                                                         tags$li("nowomen -- there aren't two women"),
+                                                         tags$li("notalk -- two women didn't to each other"),
+                                                         tags$li("men -- the topic is men"),
+                                                         tags$li("dubious -- the movie fulfilled the category",
+                                                                 tags$br(), "but the result is dubious")
+                                                 )
+                                          ),
+                                          column(6, 
+                                                 plotlyOutput('linegraph'),
+                                                 plotlyOutput('testResults')
+                                          )
+                                        ),
+                                    tags$hr(),
+                                    tags$h3("Conclusion:", class = "header"),
                                     tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
                                                                 year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
                                                                 passed the test and the ones that failed. The ", strong("first graph"), " on the right allows you to see the 
@@ -304,36 +299,14 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
                            tabPanel(h5("About Us"),
                                     tags$h1("About Us", align = "center", class = "header"),
-                                    tags$p("We are a group of students in Informatics 200, Technical Foundations, at the University of Washington.", align = "center"),
-                                    tags$p("This project was created by Anni, Utako, Adele, Keanan and Sherri as a final for the class.", align = "center"),
+                                    tags$p("We are a group of students in Informatics 201, Technical Foundations, at the University of Washington.", align = "center"),
+                                    tags$p("This project was created by ", strong("Adele, Anni, Utako, Keanan and Sherri"), "as a final for the class.", align = "center"),
                                     tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
                                     tags$img(src = "adele.jpg", height = 120, width = 120, id = "profile"),
-                                    tags$img(src = "Anni.jpg", height = 120, width = 140, id = "profile"),
-                                    tags$img(src = "Utako.jpg", height = 120, width = 140, id = "profile"),
-                                    tags$img(src = "Keanan.jpg", height = 120, width = 60, id = "profile"),
-                                    tags$section(id = "photos",
-                                                 tags$img(src = "godfather.jpg"),
-                                                 tags$img(src = "jaws.jpg"),
-                                                 tags$img(src = "close.jpg"),
-                                                 tags$img(src = "avatar.jpg"),
-                                                 tags$img(src = "buster.png"),
-                                                 tags$img(src = "empire.jpg"),
-                                                 tags$img(src = "et.jpg"),
-                                                 tags$img(src = "future.jpg"),
-                                                 tags$img(src = "ghost.jpg"),
-                                                 tags$img(src = "independent.jpg"),
-                                                 tags$img(src = "lion.jpg"),
-                                                 tags$img(src = "pirate.png"),
-                                                 tags$img(src = "pulp.jpg"),
-                                                 tags$img(src = "titanic.jpg"),
-                                                 tags$img(src = "rings.jpg"),
-                                                 tags$img(src = "harry.jpg"),
-                                                 tags$img(src = "inception.jpg"),
-                                                 tags$img(src = "moonlight.jpg"),
-                                                 tags$img(src = "cap.jpg"),
-                                                 tags$img(src = "frozen.jpg")
-                                                 
-                                    )
+                                    tags$img(src = "Anni.jpg", height = 120, width = 120, id = "profile"),
+                                    tags$img(src = "Utako.jpg", height = 120, width = 120, id = "profile"),
+                                    tags$img(src = "Keanan.jpg", height = 120, width = 120, id = "profile"),
+                                    tags$img(src = "sherri.jpg", height = 120, width = 120, id = "profile")
                            )
 )                           
 ))
