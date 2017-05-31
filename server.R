@@ -3,6 +3,7 @@ library(dplyr)
 library(scales)
 library(ggplot2)
 library(plotly)
+library(knitr)
 
 #setwd("~/Desktop/INFO201/Info201GroupProj")
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
@@ -61,9 +62,11 @@ shinyServer(function(input, output) {
     return(countryGraph(joined.movie.data))
   })
   
-  #YOUR SHOULD MODIFY THIS FILE BY ADDINT SOMETHING LIKE THIS???
-  #output$pg1 <- renderPlot({ 
-  #  return(YOUR.FUNCTION.NAME(movie.data, OTHER.PARAMETER))
-  #})
+  output$movieInfo <- renderDataTable({
+    movie_title <- joined.movie.data %>%
+      select(title, imdb, year, clean_test, binary, genres,
+             movie_imdb_link, imdb_score)
+    return(movie_title)
+  })
   
 })

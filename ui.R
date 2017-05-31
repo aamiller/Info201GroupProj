@@ -261,7 +261,6 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     tags$h3(class = "header", 'Does Country Made Affect Passing Rates?'),
                                     mainPanel(
                                       plotlyOutput('countryGraph', width = "950", height = "700"),
-                                      tags$h2("Notes", align = "center"),
                                       textOutput('countryText')
                                     ),
                                     sidebarPanel(
@@ -296,9 +295,12 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                            ), 
                            tabPanel(h5("search movie"),
-                                    tags$h3("type your movie here", class = "header"),
-                                    tags$input(type="text", name="search", placeholder="Search.."),
-                                    tags$button()
+                                    tags$h3("Movie library", class = "header", align = "center"),
+                                    #textInput("text", label = "", placeholder="Search.."),
+                                    #actionButton(inputId = "search", label = "Search", 
+                                                 #width = '8%'),
+                                    #invisible(readline(prompt="Press [enter] to continue")),
+                                    dataTableOutput("movieInfo")
                            )
                            
                            #YOU SHOULD MODIFY THIS FILE BY ADDING YOUR OUTPUT AFTER THE PAGE NAME LIKE THIS:
