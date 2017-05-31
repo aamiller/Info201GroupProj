@@ -22,7 +22,7 @@ source('./script/profitBechdelAssessment.R')
 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
-                           title = h5("BECHDEL TEST REPORT", class = "title"), 
+                           "BECHDEL TEST REPORT",
                            
                            tabPanel(h5("Home"), 
                                     tags$div(id = "cover",
@@ -225,32 +225,32 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     tags$hr(), 
                                     tags$h3(class = "header", "Passing rate from 1970 - 2013"),
                                     
-                                        fluidRow(
-                                          column(3, offset = 2,
-                                                 sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
-                                                             max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
-                                                 
-                                                 #page 4 radio button widget
-                                                 radioButtons("button", label = h3("Test Result"), 
-                                                              choices = list("pass" = "PASS", "fail" = "FAIL"),
-                                                              selected = "PASS"),
-                                                 
-                                                 tags$h4("Result interpretation:", class = "inter"),
-                                                 
-                                                 tags$ul(class = "inter",
-                                                         tags$li("ok -- pass the test"),
-                                                         tags$li("nowomen -- there aren't two women"),
-                                                         tags$li("notalk -- two women didn't to each other"),
-                                                         tags$li("men -- the topic is men"),
-                                                         tags$li("dubious -- the movie fulfilled the category",
-                                                                 tags$br(), "but the result is dubious")
-                                                 )
-                                          ),
-                                          column(6, 
-                                                 plotlyOutput('linegraph'),
-                                                 plotlyOutput('testResults')
-                                          )
-                                        ),
+                                    fluidRow(
+                                      column(3, offset = 2,
+                                             sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
+                                                         max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
+                                             
+                                             #page 4 radio button widget
+                                             radioButtons("button", label = h3("Test Result"), 
+                                                          choices = list("pass" = "PASS", "fail" = "FAIL"),
+                                                          selected = "PASS"),
+                                             
+                                             tags$h4("Result interpretation:", class = "inter"),
+                                             
+                                             tags$ul(class = "inter",
+                                                     tags$li("ok -- pass the test"),
+                                                     tags$li("nowomen -- there aren't two women"),
+                                                     tags$li("notalk -- two women didn't to each other"),
+                                                     tags$li("men -- the topic is men"),
+                                                     tags$li("dubious -- the movie fulfilled the category",
+                                                             tags$br(), "but the result is dubious")
+                                             )
+                                      ),
+                                      column(6, 
+                                             plotlyOutput('linegraph'),
+                                             plotlyOutput('testResults')
+                                      )
+                                    ),
                                     tags$hr(),
                                     tags$h3("Conclusion:", class = "header"),
                                     tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
