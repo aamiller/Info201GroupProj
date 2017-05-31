@@ -53,6 +53,8 @@ h5 {
 .header {
   font-size: 35px;
   font-family: fantasy;
+  text-align: center;
+  margin-top: 2%;
 }
 .para1{
   font-size: 30px;
@@ -74,14 +76,68 @@ p {
   font-size: 30px;
 }
 /*this is for the page of year made*/
-.year {
-  font-size: 20px;
+.hvrbox,
+.hvrbox * {
+	box-sizing: border-box;
 }
+.hvrbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+.hvrbox img {
+	height: 350px;
+  width:260px;
+}
+.hvrbox .hvrbox-layer_bottom {
+	display: block;
+}
+.hvrbox .hvrbox-layer_top {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+.hvrbox:hover .hvrbox-layer_top,
+.hvrbox.active .hvrbox-layer_top {
+	opacity: 1;
+}
+.hvrbox .hvrbox-text {
+	text-align: center;
+	font-size: 13px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
 em {
   color: #E9967A;
+  font-family: fantasy;
 }
 .para3 {
-  font-size: 20px;
+  font-size: 25px;
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 5%;
 }
 .inter {
   font-size: 20px;
@@ -89,6 +145,15 @@ em {
 strong{
   color: #E9967A;
 }
+
+.hr {
+  width:75%;
+  height:10px;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+/*about us page*/
 
 #profile {
   border-radius: 100%;
@@ -110,9 +175,23 @@ input {
   padding: 12px 20px 12px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+}
 
+/*photo collage*/
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
 
-/*When the input field gets focus, change its width to 100%
-input:focus {
-    width: 40%;
-}*/
+  -webkit-column-count: 20;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    20;
+  -moz-column-gap:      0px;
+  column-count:         20;
+  column-gap:           0px;
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}
