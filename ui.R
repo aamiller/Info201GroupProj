@@ -325,8 +325,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     tags$p("This project was created by ", strong("Adele, Anni, Utako, Keanan and Sherri"), "as a final for the class.", align = "center"),
                                     tags$p("We chose to use the Bechdel Test data because it has a lot of interesting dimensions to consider and is a great benchmark for films' script quality, among other things.", align = "center"),
                                     tags$img(src = "adele.jpg", height = 120, width = 120, id = "profile"),
-                                    tags$img(src = "Anni.jpg", height = 120, width = 120, id = "profile"),
-                                    tags$img(src = "Utako.jpg", height = 120, width = 120, id = "profile"),
+                                    tags$img(src = "anni.png", height = 120, width = 120, id = "profile"),
+                                    tags$img(src = "utako.png", height = 120, width = 120, id = "profile"),
                                     tags$img(src = "Keanan.jpg", height = 120, width = 120, id = "profile"),
                                     tags$img(src = "sherri.jpg", height = 120, width = 120, id = "profile")
                            )
