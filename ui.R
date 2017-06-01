@@ -278,7 +278,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            failed or passed the test, as well as the categories of the tests.", class = "para3"),
                                     
                                     tags$p(class = "para3", "As you can see in this graph, the passing rate increased gradually.
-                                           This is might due to public recognition of the importance of gender equality or it could
+                                           This might due to public recognition of the importance of gender equality or it could
                                            simply be the pressure by the society.")
                                     
                            ),
