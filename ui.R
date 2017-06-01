@@ -122,7 +122,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            ),
                            
                            #profit tab 
-                           tabPanel(h5("Profit"), 
+                           tabPanel(h5("Profit&Budget"), 
                                     tags$h3(class = "header", 'Does Profit or Budget Affect Passing Rates?'),
                                     sidebarLayout(
                                       
@@ -160,16 +160,6 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$p(class = "guide", "We noticed that adventure genre movies pass frequently, 
                                              as well as thriller movies. We speculate that this is the case for thriller 
                                              movies because the topic of conversation is usually about a monster or danger.")
-                                    )
-                           ),
-                           
-                           #budget tab 
-                           tabPanel(h5("Budget"), 
-                                    tags$h3(class = "header", 'Does Budget Affect Passing Rates?'),
-                                    
-                                    #main panel for plot 
-                                    mainPanel(
-                                      textOutput("budgetText")
                                     )
                            ),
                            
