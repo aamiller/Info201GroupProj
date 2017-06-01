@@ -19,10 +19,11 @@ source('./script/profitBechdelAssessment.R')
 #Shiny App UI 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
-                           "BECHDEL TEST REPORT",
+                           title = "BECHDEL TEST REPORT",
                            
                            #Home page 
                            tabPanel(h5("Home"), 
+                                    #this is the introduction page
                                     tags$div(id = "cover",
                                              tags$h3("Introduction", class = "cover-content"),
                                              tags$script(HTML("var slideIndex = 0;
@@ -40,6 +41,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                               setTimeout(carousel, 2000); // Change image every 2 seconds
                                                               }"))
                                     ),
+                                    #using style sheet
                                     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
                                     tags$div(class = "movies",
                                              tags$div(class = "movie",
@@ -50,7 +52,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                               is a simple test which names the following three criteria: The test was 
                                                               popularized by Alison Bechdel's comic Dykes to Watch Out For, in a 1985 
                                                               strip called The Rule.", class = "para1")
-                                                      ),
+                                             ),
                                              tags$div(class = "movie",
                                                       tags$img(src = "intro5.jpg"),
                                                       tags$h3("Statistical Analysis:", class = "header"),
@@ -71,7 +73,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                       tags$h4("The Bechdel Test has since become relatively well known and is often 
                                                               referenced in movie reviews. It has become a rather embarassing test 
                                                               to fail, though many movies do fail it.", class = "para2")
-                                                      ),
+                                             ),
                                              tags$div(class = "movie",
                                                       tags$img(src = "intro4.jpg"),
                                                       tags$h3("Three test categories", class = "header"),
@@ -81,8 +83,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                               tags$li("something besides a man. ")
                                                       )
                                              )
-                                                      )
-                                             ),
+                                    )
+                           ),
                            
                            #Rating tab 
                            tabPanel(h5("Rating"), 
@@ -118,8 +120,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$p(class = "guide", strong("Rating Not Rated -- "), "Movie was never given a content rating. Sometimes used deliberately for explicit movies that might otherwise be rating 
                                              R or X.", align = "center"),
                                       tags$p(class = "guide", "Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
-                                      )
-                                      ),
+                                    )
+                           ),
                            
                            #profit tab 
                            tabPanel(h5("Profit&Budget"), 
@@ -147,8 +149,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                         tags$p(class = "guide", "According to Investopedia.com, the average cost for a major studio to 
                                                produce a movie is 65 million dollars plus 35 million in marketing, 
                                                which puts most major productions beyond the range where most movies past the Bechdel Test."))
-                                        )
-                                        ),
+                                    )
+                           ),
                            
                            #popularity tab 
                            tabPanel(h5("Popularity"), 
@@ -171,11 +173,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$p(class = "guide", "We noticed that adventure genre movies pass frequently, 
                                              as well as thriller movies. We speculate that this is the case for thriller 
                                              movies because the topic of conversation is usually about a monster or danger.")
-                                      )
-                                      ),
+                                    )
+                           ),
                            
                            #year made tab 
                            tabPanel(h5("Year Made"), 
+                                    
+                                    #a group of five pictures that will show text if hover over the img
                                     tags$div(class = "hvrbox",
                                              tags$img(src = "godfather.jpg",class = "hvrbox-layer_bottom"),
                                              tags$div(class = "hvrbox-layer_top",
@@ -192,7 +196,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                              movies and 'rouge cop' movies.Major productions includes",
                                                              em("Star Wars: The Empire Strikes Back(1980), Ghostbusters(1984), E.T.(1982),
                                                                 Back to the Future(1985)."), class = "hvrbox-text"))
-                                                             ),
+                                    ),
                                     
                                     tags$div(class = "hvrbox", 
                                              tags$img(src = "titanic.jpg", class = "hvrbox-layer_bottom"),
@@ -202,7 +206,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                              However,low budget independent movies also won their populaity. Major productions:", 
                                                              em("Ghost(1990), The Lion King(1994), Pulp Fiction(1995), 
                                                                 Titantic(1997)."), class = "hvrbox-text"))
-                                                             ),
+                                    ),
                                     
                                     tags$div(class = "hvrbox", 
                                              tags$img(src = "harry.jpg", class = "hvrbox-layer_bottom"),
@@ -211,7 +215,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                              decade was also influenced by 911 attacks, Asian tsunami and Hurricans.Major
                                                              productions: ", em("Avatar(2009), Pirates of the Caribbean(2003),
                                                                                 Harry Potter and the Sorcerer's Stone (2001)"), class = "hvrbox-text"))
-                                                      ),
+                                    ),
                                     
                                     tags$div(class = "hvrbox", 
                                              tags$img(src = "frozen.jpg", class = "hvrbox-layer_bottom"),
@@ -224,6 +228,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                                     tags$hr(), 
                                     
+                                    #the background of this data analysis
                                     tags$h3(class = "header", "Does Year Made Affect Passing Rates?"),
                                     tags$p("The graphs below show ", strong("how year made affect the Bechdel Test Result"), ". Our data set has major movie 
                                            productions from ", strong("1970 - 2013"), " and is a combination of Bechel Test from FiveThirtyEight and 
@@ -231,8 +236,9 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            class = "para3"),
                                     
                                     tags$hr(), 
-                                    tags$h3(class = "header", "Passing rate from 1970 - 2013"),
                                     
+                                    #the data visualization of year and passing rate
+                                    tags$h3(class = "header", "Passing rate from 1970 - 2013"),
                                     fluidRow(
                                       column(3, offset = 2,
                                              #slider widget for choosing year made 
@@ -246,6 +252,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              
                                              tags$h4("Result interpretation:", class = "inter"),
                                              
+                                             #explaining what each word means
                                              tags$ul(class = "inter",
                                                      tags$li("ok -- pass the test"),
                                                      tags$li("nowomen -- there aren't two women"),
@@ -261,6 +268,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       )
                                     ),
                                     tags$hr(),
+                                    
+                                    #giving conclusions for this data analysis
                                     tags$h3("Conclusion:", class = "header"),
                                     tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
                                            year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
@@ -272,7 +281,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            This is might due to public recognition of the importance of gender equality or it could
                                            simply be the pressure by the society.")
                                     
-                                    ),
+                           ),
                            
                            #country tab 
                            tabPanel(h5("Country"), 
@@ -300,8 +309,8 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              such as China. While there isn't enough data here to evaluate performance based on social progress, 
                                              a future question to investigate is how the overwhelming political ideologies in these countries 
                                              affect the likehood of having two women talk to each other." , align = "center")
-                                      )
-                                      ),
+                                    )
+                           ),
                            
                            #search movie tab 
                            tabPanel(h5("search movie"),
@@ -321,5 +330,5 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     tags$img(src = "Keanan.jpg", height = 120, width = 120, id = "profile"),
                                     tags$img(src = "sherri.jpg", height = 120, width = 120, id = "profile")
                            )
-                                      )                           
-                                    ))
+)                           
+))

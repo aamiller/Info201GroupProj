@@ -59,11 +59,6 @@ shinyServer(function(input, output) {
     BuildGenreBarPlot(joined.movie.data)
   })
   
-  #returns a plot??
-  output$main_plot <- renderPlot({    
-    plot(x, y)}, height = 200, width = 300)
-  
-
   #returns a plot for popularity 
   output$popularity <- renderPlotly({
     return(ActorData(input$scatterX))

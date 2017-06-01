@@ -4,10 +4,7 @@
 h5 {
     font-family: fantasy;
     text-align: center;
-}
-
-title{
-  font-size: 23px;
+    font-size: 20px;
 }
 
 /* this is home page setting*/
@@ -149,7 +146,7 @@ strong{
 
 hr {
   border: 1px solid #778899;
-  width:70%;
+  width:50%;
 }
 
 /*about us page*/
