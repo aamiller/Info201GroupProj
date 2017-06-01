@@ -6,6 +6,9 @@ library(plotly)
 library(Hmisc)
 library(shiny)
 library(shinythemes)
+library(dplyr)
+library(scales)
+library(knitr)
 
 #reading data from fivethirtyeight
 bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
@@ -13,8 +16,12 @@ new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv', stringsAsFa
 year_data <- year(bechdel_data_raw)
 
 #sourcing functions in different file 
+source("./script/profitBechdelAssessment.R")
+source("./script/genreAnalysisGraph.R")
 source('./script/year.R')
-source('./script/profitBechdelAssessment.R')
+source("./script/ratingBarGraph.R")
+source("./script/country.graph.R")
+source("./script/ActorData.R")
 
 #Shiny App UI 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),

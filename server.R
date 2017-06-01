@@ -1,9 +1,12 @@
 #loading required libraries
-library(shiny)
 library(dplyr)
-library(scales)
 library(ggplot2)
 library(plotly)
+library(Hmisc)
+library(shiny)
+library(shinythemes)
+library(dplyr)
+library(scales)
 library(knitr)
 
 #loading required sources
