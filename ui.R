@@ -227,6 +227,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                            productions from ", strong("1970 - 2013"), " and is a combination of Bechel Test from FiveThirtyEight and 
                                            a dataset from IMDB api.", a(href = "http://bechdeltest.com/", "(for more information)"),
                                            class = "para3"),
+                                    tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
+                                             year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
+                                           passed the test and the ones that failed. The ", strong("first graph"), " on the right allows you to see the 
+                                           trends of the pass/fail rate, and the ", strong("second graph"), " allows you to see the reason those films
+                                           failed or passed the test, as well as the categories of the tests.", class = "para3"),
                                     
                                     tags$hr(), 
                                     
@@ -260,19 +265,24 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              plotlyOutput('testResults')
                                       )
                                     ),
+                                      
                                     tags$hr(),
                                     
                                     #giving conclusions for this data analysis
                                     tags$h3("Conclusion:", class = "header"),
-                                    tags$p("The ", strong("sliders"), " on the left side of the page allows you to select the
-                                           year range you want to view on the graphs. The ", strong("radio button"), " allows you to see the films that
-                                           passed the test and the ones that failed. The ", strong("first graph"), " on the right allows you to see the 
-                                           trends of the pass/fail rate, and the ", strong("second graph"), " allows you to see the reason those films
-                                           failed or passed the test, as well as the categories of the tests.", class = "para3"),
-                                    
-                                    tags$p(class = "para3", "As you can see in this graph, the passing rate increased gradually.
+                                    tags$p("For movies that failed the test from 1970 - 2013:", class = "para3"),
+                                    tags$ul(class = "para3",
+                                      tags$li("Dubious -- movies have this result are mostly in the ", em("2010s.")), 
+                                      tags$li("Men -- this is one of the issues that appears through out this time 
+                                               period, espeically in ", em("late 1990s.")),
+                                      tags$li("No Talk -- movies failed are mostly after ", em("1990s"), " and this is an issue throught out the year."),
+                                      tags$li("No women -- movies failed are mostly in the ", em("2000s"), " which 
+                                              many focused on the male charater.")
+                                    ),
+                                    tags$p(class = "para3", "As you can see in this graph, ", em("the passing rate increased gradually"), ".
                                            This might due to public recognition of the importance of gender equality or it could
-                                           simply be the pressure by the society.")
+                                           simply be the pressure by the society. However, the number of movies that ", em("failed the 
+                                           test is still over 50%. "))
                                     
                            ),
                            
