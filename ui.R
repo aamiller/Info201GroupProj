@@ -25,21 +25,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            tabPanel(h5("Home"), 
                                     #this is the introduction page
                                     tags$div(id = "cover",
-                                             tags$h3("Introduction", class = "cover-content"),
-                                             tags$script(HTML("var slideIndex = 0;
-                                                              carousel();
-                                                              
-                                                              function carousel() {
-                                                              var i;
-                                                              var x = document.getElementsByClassName('cover-content');
-                                                              for (i = 0; i < x.length; i++) {
-                                                              x[i].style.display = 'none'; 
-                                                              }
-                                                              slideIndex++;
-                                                              if (slideIndex > x.length) {slideIndex = 1} 
-                                                              x[slideIndex-1].style.display = 'block'; 
-                                                              setTimeout(carousel, 2000); // Change image every 2 seconds
-                                                              }"))
+                                             tags$h3("Introduction", class = "cover-content")
                                     ),
                                     #using style sheet
                                     tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
@@ -49,7 +35,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                       tags$h3("What is a Bechdel Test?", class = "header"),
                                                       tags$h4("According to ", a(href = "http://bechdeltest.com/", "bechdeltest.com"),
                                                               " the Bechdel Test, sometimes called the Mo Movie Measure or Bechdel Rule 
-                                                              is a simple test which names the following three criteria: The test was 
+                                                              is a simple test, which was 
                                                               popularized by Alison Bechdel's comic Dykes to Watch Out For, in a 1985 
                                                               strip called The Rule.", class = "para1")
                                              ),
@@ -57,11 +43,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                       tags$img(src = "intro5.jpg"),
                                                       tags$h3("Statistical Analysis:", class = "header"),
                                                       tags$ol(class = "para2",
-                                                              tags$li("Does the budget impact the test result?"),
-                                                              tags$li("Does the profit impact the test result?"),
+                                                              tags$li("Does the budget&profit impact the test result?"),
+                                                              tags$li("Does the country impact the test result?"),
                                                               tags$li("Is there a trend based on the year?"),
                                                               tags$li("Does the genre impact the test result?"),
-                                                              tags$li("Is the IMDB rating related to the test result?"),
+                                                              tags$li("Does popularity relate to the test result?"),
                                                               tags$li("Does rating (PG-13, R, etc.) affect the test result?")
                                                       )
                                              ),
@@ -70,7 +56,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                       tags$h3("Data Set:", class = "header"),
                                                       tags$h4(class = "para2", "Bechdel Tests of movies from ", 
                                                               a(href = "https://github.com/fivethirtyeight/data/", "FiveThirtyEight.")),
-                                                      tags$h4("The Bechdel Test has since become relatively well known and is often 
+                                                      tags$h4("The Bechdel Test  becomes relatively well known and is often 
                                                               referenced in movie reviews. It has become a rather embarassing test 
                                                               to fail, though many movies do fail it.", class = "para2")
                                              ),
