@@ -63,9 +63,10 @@ shinyServer(function(input, output) {
   output$main_plot <- renderPlot({    
     plot(x, y)}, height = 200, width = 300)
   
+
   #returns a plot for popularity 
   output$popularity <- renderPlotly({
-    +    return(ActorData(input$scatterX))
+    return(ActorData(input$scatterX))
   })
   
   #returns a map of countries affect the passing rate

@@ -2,11 +2,13 @@ library(dplyr)
 library(shiny)
 library(plotly)
 
+
+
+
 # this function outputs a choropleth world map that shows some data relating different companies
 countryGraph <- function(country.movie.data) {
-
   # the next few lines of code clean up the data and make a new data frame out of it only including the
-# information needed for the plot.
+  # information needed for the plot.
 country.movie.data <- country.movie.data %>% group_by(country) %>% summarise("number.passed" = sum(binary == "PASS"),
                                                                  "number.failed" = sum(binary == "FAIL"))
 country.movie.data <- mutate(country.movie.data, "passage.rate" = number.passed/(number.passed + number.failed))
@@ -33,6 +35,7 @@ trace1 <- list(
   type = "choropleth", 
   zmin = 0
 )
+
 data <- list(trace1)
 layout <- list(
   geo = list(
