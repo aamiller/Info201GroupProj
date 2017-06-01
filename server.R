@@ -12,6 +12,7 @@ source("./script/genreAnalysisGraph.R")
 source('./script/year.R')
 source("./script/ratingBarGraph.R")
 source("./script/country.graph.R")
+source("./script/ActorData.R")
 
 #making useful dataframes
 movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
@@ -62,9 +63,9 @@ shinyServer(function(input, output) {
   output$main_plot <- renderPlot({    
     plot(x, y)}, height = 200, width = 300)
   
-  #returns a plot??
-  output$budgetText <- renderText({
-    return("EDIT YOUR TEXT/CONCLUTION HERE FOR BUDGE PAGE")
+  #returns a plot for popularity 
+  output$popularity <- renderPlotly({
+    +    return(ActorData(input$scatterX))
   })
   
   #returns a map of countries affect the passing rate

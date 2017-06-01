@@ -150,6 +150,17 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
+                           #popularity tab 
+                           tabPanel(h5("Popularity"), 
+                                    tags$h3(class = "header", 'Does Popularity Affect Passing Rates?'),
+                                    sidebarPanel(
+                                        # Input to select variable to map
+                                        selectInput('scatterX', label = 'Variable to Map to X Axis', choices = list('Actor1' = 'actor_1_facebook_likes', 'Actor2' = 'actor_2_facebook_likes', 'Actor3' = 'actor_3_facebook_likes'))),
+                                    mainPanel(
+                                        plotlyOutput("popularity")
+                                    )
+                           ),
+                           
                            #genre tab 
                            tabPanel(h5("Genre"), 
                                     tags$h3(class = "header", 'Does Genre Affect Passing Rates?'),
