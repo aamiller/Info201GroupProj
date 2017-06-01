@@ -1,29 +1,27 @@
+#install.packages('shinythemes')
+#install.packages("Hmisc")
 library(dplyr)
 library(ggplot2)
 library(plotly)
 library(Hmisc)
-#install.packages('shinythemes')
 library(shiny)
+library(shinythemes)
 
-#prepare data for page 3
-
-#this is the data from fivethirtyeight
+#reading data from fivethirtyeight
 bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
-
-#trying to get yearly data using year function
-source('./script/year.R')
+new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv', stringsAsFactors = FALSE)
 year_data <- year(bechdel_data_raw)
 
-#this is the final dataset 
-new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv')
-
-#profitBechdelAssessment.R
+#sourcing functions in different file 
+source('./script/year.R')
 source('./script/profitBechdelAssessment.R')
 
+#Shiny App UI 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
                            "BECHDEL TEST REPORT",
                            
+                           #Home page 
                            tabPanel(h5("Home"), 
                                     tags$div(id = "cover",
                                              tags$h3("Introduction", class = "cover-content"),
@@ -86,8 +84,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           tabPanel(h5("Rating (ADELE)"), 
+                           #Rating tab 
+                           tabPanel(h5("Rating"), 
                                     tags$h3(class = "header",'Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
+                                    
+                                    #main panel for plot and summary 
                                     mainPanel(
                                       plotlyOutput('contentRatingBechdelAssessment'),
                                       tags$h2("Notes", align = "center"),
@@ -100,6 +101,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              class = "rating")
                                     ),
                                     
+                                    #sidebar panel for explanation about different rating 
                                     sidebarPanel(
                                       tags$h2(class = "header", "Content Ratings Guide", align = "center"),
                                       tags$p(class = "guide", strong("PG -- "), "Patental guidance suggested, some material may not be suitable for children.", align = "center"),
@@ -118,7 +120,9 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       tags$p(class = "guide", "Ratings descriptions collected from Wikipedia on 5/28/2017.", align = "center")
                                     )
                            ),
-                           tabPanel(h5("Profit (ADELE)"), 
+                           
+                           #profit tab 
+                           tabPanel(h5("Profit"), 
                                     tags$h3(class = "header", 'Does Profit or Budget Affect Passing Rates?'),
                                     sidebarLayout(
                                       
@@ -145,11 +149,12 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                which puts most major productions beyond the range where most movies past the Bechdel Test."))
                                     )
                            ),
-                           tabPanel(h5("Genre (ADELE)"), 
+                           
+                           #genre tab 
+                           tabPanel(h5("Genre"), 
                                     tags$h3(class = "header", 'Does Genre Affect Passing Rates?'),
-                                    #sidebarPanel(add your plot here),
+                                    #main panel for plot and summary 
                                     mainPanel(
-                                      #plotlyOutput("YOUR PLOT NAME),
                                       plotlyOutput('GenreBechdelAssessmentBar'),
                                       tags$h2("Notes"),
                                       tags$p(class = "guide", "We noticed that adventure genre movies pass frequently, 
@@ -157,17 +162,19 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                              movies because the topic of conversation is usually about a monster or danger.")
                                     )
                            ),
-                           tabPanel(h5("Budget (SHERRI)"), 
+                           
+                           #budget tab 
+                           tabPanel(h5("Budget"), 
                                     tags$h3(class = "header", 'Does Budget Affect Passing Rates?'),
-                                    #sidebarPanel(add your plot here),
+                                    
+                                    #main panel for plot 
                                     mainPanel(
-                                      #plotlyOutput("YOUR PLOT NAME),
                                       textOutput("budgetText")
                                     )
                            ),
                            
-                           #tab page 4 by Anni
-                           tabPanel(h5("Year Made (ANNI)"), 
+                           #year made tab 
+                           tabPanel(h5("Year Made"), 
                                     tags$div(class = "hvrbox",
                                              tags$img(src = "godfather.jpg",class = "hvrbox-layer_bottom"),
                                              tags$div(class = "hvrbox-layer_top",
@@ -227,10 +234,11 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                                     fluidRow(
                                       column(3, offset = 2,
+                                             #slider widget for choosing year made 
                                              sliderInput("slider", label = h3("Year Made"), min = year_data$year[44], 
                                                          max = year_data$year[1], value = c(year_data$year[40], year_data$year[30])),
                                              
-                                             #page 4 radio button widget
+                                             #radio button widget for choosing the test result 
                                              radioButtons("button", label = h3("Test Result"), 
                                                           choices = list("pass" = "PASS", "fail" = "FAIL"),
                                                           selected = "PASS"),
@@ -265,12 +273,14 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                            ),
                            
-                           tabPanel(h5("Country (KEENAN)"), 
+                           #country tab 
+                           tabPanel(h5("Country"), 
                                     tags$h3(class = "header", 'Does Country Made Affect Passing Rates?'),
+                                    #main panel for plot and text 
                                     mainPanel(
-                                      plotlyOutput('countryGraph', width = "950", height = "700"),
-                                      textOutput('countryText')
+                                      plotlyOutput('countryGraph', width = "100%", height = "auto")
                                     ),
+                                    #sidebar panel for summary 
                                     sidebarPanel(
                                       tags$h2(class = "header", "Bechdel Pass by Country", align = "center"),
                                       tags$p(class = "guide", "The graph above shows the ratio of number of films that PASSED the test to the number of  
@@ -292,11 +302,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
+                           #search movie tab 
                            tabPanel(h5("search movie"),
                                     tags$h3("Movie library", class = "header", align = "center"),
                                     dataTableOutput("movieInfo")
                            ),
                            
+                           #about us tab
                            tabPanel(h5("About Us"),
                                     tags$h1("About Us", align = "center", class = "header"),
                                     tags$p("We are a group of students in Informatics 201, Technical Foundations, at the University of Washington.", align = "center"),
