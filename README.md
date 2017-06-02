@@ -8,7 +8,7 @@ __Data Set__ : Bechdel Tests of movies from [FiveThirtyEight](https://github.com
 ##### Background of Data Set
 This data was collected by FiveThirtyEight. There is not much information available from them about the dataset. We accessed it using FiveThirtyEight's github folder full of public .csv (_c_omma _s_eparated _v_alue) files. 
 
-__Update__ We ended up merging our data set with the [https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset](Kaggle set "IMDB 5000 Movie Database") because the OMDB Api we originally intended to use was made private.
+__Update__ We ended up merging our data set with the [Kaggle set IMDB 5000 Movie Database](https://www.kaggle.com/deepmatrix/imdb-5000-movie-dataset) because the OMDB Api we originally intended to use was made private.
 
 ##### Note: The data only goes up to 2013.
 ##### What is a Bechdel Test?
