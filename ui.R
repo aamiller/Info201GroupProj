@@ -1,5 +1,3 @@
-#install.packages('shinythemes')
-#install.packages("Hmisc")
 library(dplyr)
 library(ggplot2)
 library(plotly)
@@ -28,7 +26,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                            
                            title = "BECHDEL TEST REPORT",
                            
-                           #Home page 
+                           # Home page 
                            tabPanel(h5("Home"), 
                                     #this is the introduction page
                                     tags$div(id = "cover",
@@ -50,7 +48,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                                       tags$img(src = "intro5.jpg"),
                                                       tags$h3("Statistical Analysis:", class = "header"),
                                                       tags$ol(class = "para2",
-                                                              tags$li("Does the budget&profit impact the test result?"),
+                                                              tags$li("Does the budget or profit impact the test result?"),
                                                               tags$li("Does the country impact the test result?"),
                                                               tags$li("Is there a trend based on the year?"),
                                                               tags$li("Does the genre impact the test result?"),
@@ -79,7 +77,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           #Rating tab 
+                           # Rating tab 
                            tabPanel(h5("Rating"), 
                                     tags$h3(class = "header",'Adjust Rating (PG-13, etc.) Affect Passing Rates?'),
                                     
@@ -116,7 +114,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           #profit tab 
+                           # Profit/Budget tab 
                            tabPanel(h5("Profit&Budget"), 
                                     tags$h3(class = "header", 'Does Profit or Budget Affect Passing Rates?'),
                                     sidebarLayout(
@@ -145,22 +143,25 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           #popularity tab 
+                           # Popularity tab 
                            tabPanel(h5("Popularity"), 
                                     tags$h3(class = "header", 'Does Popularity Affect Passing Rates?'),
                                     sidebarPanel(
                                       # Input to select variable to map
-                                      selectInput('scatterX', label = 'Variable to Map to X Axis', choices = list('Actor1' = 'actor_1_facebook_likes', 'Actor2' = 'actor_2_facebook_likes', 'Actor3' = 'actor_3_facebook_likes'))),
+                                      selectInput('scatterX', label = 'Variable to Map to X Axis', choices = list('Actor 1' = 'actor_1_facebook_likes', 'Actor 2' = 'actor_2_facebook_likes', 'Actor 3' = 'actor_3_facebook_likes'))),
                                     mainPanel(
+                                      plotlyOutput("popularity"),
                                       tags$h2("Notes", align = "center"),
                                       tags$p("This scatterplot assesses the relationship between popularity of
-                                             the main actors of the movie(the fist actor, the second actors and the
-                                             thirs one versus the popularity of the movie and at the same time
+                                             the main actors of the movie (the first actor, the second actors and the
+                                             third one according to IMDB, basically the main actors) versus the popularity of the movie and at the same time
                                              shows their relationship with the passage ot failiure if the movie in
-                                             the bachdel test.", align = "center", 
-                                             class = "rating"),
-                                      plotlyOutput("popularity")
-                                    )
+                                             the Bechdel test. The metric for popularity is how many likes an actor has on Facebook. Curiously,
+                                             there seems to be a very high pass rate with some of the lower popularity movies, especially for actors 1 and 2. Moreover, the most popular movies do not pass the Bechel date that this data was taken is unknown, unfortuately, but within the last 4 years.", align = "center", 
+                                             class = "guide"),
+                                      tags$p("Unfortunately it is not clear what the criteria for picking the actors was. They do seem to be the headline actors in general. For example, Star Wars has supporting actor Peter Cushing as actor 2, Harrison Ford as actor 1, and Kenny Baker (R2-D2) as actor 3. The Shining has lead actress Shelley Duvall (actor 2), Scatman Crothers (a somewhat minor character as actor 1), and Joe Turkel as actor 3 (Lloyd.) So one of the headline actors is included, but not the famous lead Jack Nicholson. For this reason, read this plot critically.", align = "center", class = "guide")
+                                      ## Notes edited and detailed off of Sherri's original ones by Adele.
+                                      )
                            ),
                            
                            #genre tab 
@@ -293,7 +294,7 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     
                            ),
                            
-                           #country tab 
+                           # Country tab 
                            tabPanel(h5("Country"), 
                                     tags$h3(class = "header", 'Does Country Made Affect Passing Rates?'),
                                     #main panel for plot and text 
@@ -326,13 +327,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                     )
                            ),
                            
-                           #search movie tab 
+                           # Search movie tab 
                            tabPanel(h5("search movie"),
                                     tags$h3("Movie library", class = "header", align = "center"),
                                     dataTableOutput("movieInfo")
                            ),
                            
-                           #about us tab
+                           # About us tab with pictures!
                            tabPanel(h5("About Us"),
                                     tags$h1("About Us", align = "center", class = "header"),
                                     tags$p("We are a group of students in Informatics 201, Technical Foundations, at the University of Washington.", align = "center"),

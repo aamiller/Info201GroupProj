@@ -20,15 +20,15 @@ ActorData <- function(input.name) {
 
   return(plot)
 }
-# changes teh labels of the axis 
+# changes the labels of the axis to be in a more legible and professional format
 FixAxisLabels <- function(input.name) {
   print(input.name)
-  if (input.name == "Actor1") { input.name <- "Actor 1 popularity"}
-  if (input.name == "Actor2") { input.name <- "Actor 2 popularity"}
-  if (input.name == "Actor3") { input.name <- "Actor 3 popularity"}
-  if (input.name == "actor_1_facebook_likes") { input.name <- "Actor 1 popularity"}
-  if (input.name == "actor_1_facebook_likes") { input.name <- "Actor 2 popularity"}
-  if (input.name == "actor_1_facebook_likes") { input.name <- "Actor 3 popularity"}
+  if (input.name == "Actor1") { input.name <- "Actor 1 Likes on Facebook"}
+  if (input.name == "Actor2") { input.name <- "Actor 2 Likes on Facebook"}
+  if (input.name == "Actor3") { input.name <- "Actor 3 Likes on Facebook"}
+  if (input.name == "actor_1_facebook_likes") { input.name <- "Actor 1 Likes on Facebook"}
+  if (input.name == "actor_2_facebook_likes") { input.name <- "Actor 2 Likes on Facebook"}
+  if (input.name == "actor_3_facebook_likes") { input.name <- "Actor 3 Likes on Facebook"}
   
   return(input.name)
 }
