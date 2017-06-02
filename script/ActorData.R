@@ -2,6 +2,9 @@ library(plotly)
 library(stringr)
 library(Hmisc)
 library(dplyr)
+
+joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", stringsAsFactors = FALSE)
+
 #renders the plotly and making the desired dataframe 
 ActorData <- function(input.name) {
    my.data <- select(joined.movie.data, actor_1_facebook_likes, actor_2_facebook_likes, actor_3_facebook_likes, movie_facebook_likes, binary) 

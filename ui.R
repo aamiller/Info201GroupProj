@@ -8,11 +8,6 @@ library(dplyr)
 library(scales)
 library(knitr)
 
-#reading data from fivethirtyeight
-bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
-new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv', stringsAsFactors = FALSE)
-year_data <- year(bechdel_data_raw)
-
 #sourcing functions in different file 
 source("./script/profitBechdelAssessment.R")
 source("./script/genreAnalysisGraph.R")
@@ -20,6 +15,14 @@ source('./script/year.R')
 source("./script/ratingBarGraph.R")
 source("./script/country.graph.R")
 source("./script/ActorData.R")
+
+#reading data from fivethirtyeight
+bechdel_data_raw <- read.csv("./bechdel_data/movies.csv", stringsAsFactors = FALSE)
+new_data <- read.csv('./bechdel_data/final_joined_bechdel_data.csv', stringsAsFactors = FALSE)
+year_data <- year(bechdel_data_raw)
+movie.data <- read.csv("./bechdel_data/movies.csv", stringsAsFactors =  FALSE)
+joined.movie.data <- read.csv("./bechdel_data/final_joined_bechdel_data.csv", stringsAsFactors = FALSE)
+
 
 #Shiny App UI 
 shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
