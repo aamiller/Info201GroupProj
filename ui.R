@@ -152,6 +152,13 @@ shinyUI(shinyUI(navbarPage(theme = shinythemes::shinytheme("sandstone"),
                                       # Input to select variable to map
                                       selectInput('scatterX', label = 'Variable to Map to X Axis', choices = list('Actor1' = 'actor_1_facebook_likes', 'Actor2' = 'actor_2_facebook_likes', 'Actor3' = 'actor_3_facebook_likes'))),
                                     mainPanel(
+                                      tags$h2("Notes", align = "center"),
+                                      tags$p("This scatterplot assesses the relationship between popularity of
+                                             the main actors of the movie(the fist actor, the second actors and the
+                                             thirs one versus the popularity of the movie and at the same time
+                                             shows their relationship with the passage ot failiure if the movie in
+                                             the bachdel test.", align = "center", 
+                                             class = "rating"),
                                       plotlyOutput("popularity")
                                     )
                            ),
